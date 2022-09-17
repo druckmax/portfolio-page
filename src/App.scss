@@ -1,3 +1,9 @@
+@import './Utilities';
+
 .wrapper {
-  text-align: center;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  background-color: $bg-color-black;
+  color: $text-color-light;
 }

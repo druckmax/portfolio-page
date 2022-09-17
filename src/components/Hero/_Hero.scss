@@ -1,0 +1,84 @@
+@import '../../Utilities';
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  width: 90%;
+  margin: 6rem auto;
+  position: relative;
+  // min-height: 70vh;
+  // border: 1px solid green;
+
+  @include respond(desktop-lg) {
+    flex-wrap: nowrap;
+    width: 90%;
+    min-height: 55vh;
+    max-width: 125rem;
+    margin: 6rem auto 0 auto;
+  }
+
+  .hero-portrait {
+    width: 70%;
+    max-width: 50rem;
+    min-width: 25rem;
+    margin: auto;
+
+    @include respond(desktop-lg) {
+      width: 50%;
+      max-width: 60rem;
+      position: absolute;
+      right: 0;
+      z-index: 5;
+    }
+  }
+
+  &--text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -10vw;
+    z-index: 10;
+
+    @include respond(desktop-lg) {
+      margin: 0;
+    }
+
+    h1 {
+      font-family: $font-heading;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: clamp(1px, 10vw, 5px);
+      font-size: clamp(4rem, 10vw, 10rem);
+      margin-bottom: 2rem;
+
+      @include respond(desktop-lg) {
+        text-align: left;
+      }
+    }
+
+    .sub-heading {
+      align-self: center;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      display: flex;
+      max-width: 80rem;
+      padding-left: 5vmax;
+      padding-right: 2rem;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      @include respond(desktop-lg) {
+        width: 50%;
+        align-self: flex-start;
+        margin-left: 10rem;
+      }
+    }
+
+    .hero-btn {
+      margin-top: 4rem;
+    }
+  }
+
+
+}

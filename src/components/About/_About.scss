@@ -1,0 +1,62 @@
+@import '../../Utilities';
+
+.about-container {
+  width: 80%;
+  max-width: 55rem;
+  margin: auto;
+  position: relative;
+  line-height: 2;
+  margin-bottom: 10rem;
+
+  &::before {
+    content: '';
+    width: 110%;
+    height: 150%;
+    left: 100%;
+    position: absolute;
+    background-color: $bg-color-grey;
+    transform: scale(2) rotate(20deg) translateX(-50%);
+    clip-path: polygon(0 10%, 100% 17%, 100% 80%, 0% 100%);
+    z-index: 0;
+    display: none;
+
+    @include respond(desktop-lg) {
+      display: block;
+    }
+  }
+
+  .about-content {
+    position: relative;
+    z-index: 1;
+
+    h2 {
+      font-family: $font-heading;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 500;
+      font-size: $font-size-section-heading;
+    }
+
+    .general {
+      font-weight: 400;
+    }
+
+    .about-section {
+      margin: 3rem 0;
+
+      p {
+        font-weight: 300;
+      }
+    }
+
+    .technologies-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5rem;
+    }
+  }
+
+
+}

@@ -1,0 +1,27 @@
+@import '../../Utilities.scss';
+
+.card-container {
+  position: relative;
+  z-index: 1;
+  width: 40rem;
+  height: 30rem;
+  min-width: 25rem;
+  min-height: 18rem;
+  margin: auto;
+  // margin-bottom: 5rem;
+
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+
+  .card-description {
+    background-color: $bg-color-work-descr;
+    opacity: .9;
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+}

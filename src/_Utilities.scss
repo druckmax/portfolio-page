@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+// Dark Theme
+$text-color-dark: #222;
+
+$bg-color-black: #090909;
+$bg-color-dark-grey: #0f0f0f;
+$bg-color-grey: #1a1a1a;
+$bg-color-work-descr: #555;
+
+$drop-shadow-color-white: #ffffff15;
+
+$drop-shadow-white-20: drop-shadow(0 20px 0px $drop-shadow-color-white);
+$drop-shadow-white-20-invert: drop-shadow(0 -20px 0px $drop-shadow-color-white);
+
+$drop-shadow-white-40: drop-shadow(0 50px 1px $drop-shadow-color-white);
+$drop-shadow-white-40-invert: drop-shadow(0 -50px 1px $drop-shadow-color-white);
+
+$btn-color-primary: #FF7D6B;
+$btn-color-secondary: #148EA9;
+
+// Light Theme
+$text-color-light: #f4f4f4;
+
+$bg-color-white: #fff;
+$bg-color-dark-white: #eee;
+
+$box-shadow-dark-10: 0 20px 5px rgba(0, 0, 0, 0.1);
+$box-shadow-dark-10-invert: 0 -20px 5px rgba(0, 0, 0, 0.1);
+
+$btn-color-primary-blue: #148EA9;
+
+// General
+$bg-color-work-descr: #555;
+
+$font-heading: 'Josefin Sans', sans-serif;
+$font-main: 'Open Sans', sans-serif;
+
+$font-size-section-heading: 4rem;
+
+$polygon-small-low: 7%;
+$polygon-small-high: 93%;
+$polygon-big-low: 25%;
+$polygon-big-high: 80%;
+
+// Classes
+.btn {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border: none;
+  padding: 2rem;
+  width: 20rem;
+  font-weight: 500;
+  border-radius: 15px;
+  background-color: $btn-color-primary;
+  transition: all .1s;
+
+  &:hover {
+    background-color: darken($btn-color-primary, $amount: 5);
+    transform: translateY(-1px)
+  }
+  &:active {
+    background-color: darken($btn-color-primary, $amount: 10);
+    transform: translateY(1px)
+  }
+}
+
+// ----- Media Queries ----- 
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-xs {
+    @media only screen and (max-width: 325px)
+    {@content};
+}
+  @if $breakpoint == landscape {
+    @media only screen and (min-width: 600px)
+    {@content};
+}
+  @if $breakpoint == medium {
+      @media only screen and (min-width: 800px)
+      {@content};
+  }
+  @if $breakpoint == desktop-lg {
+      @media only screen and (min-width: 1200px)
+      {@content};
+  }
+  @if $breakpoint == desktop-xl {
+      @media only screen and (min-width: 1920px)
+      {@content};
+  }
+}
