@@ -8,7 +8,7 @@ $bg-color-dark-grey: #0f0f0f;
 $bg-color-grey: #1a1a1a;
 $bg-color-work-descr: #000;
 
-$drop-shadow-color-white: #ffffff15;
+$drop-shadow-color-white: rgba(255, 255, 255, 0.082);
 
 $drop-shadow-white-20: drop-shadow(0 20px 0px $drop-shadow-color-white);
 $drop-shadow-white-20-invert: drop-shadow(0 -20px 0px $drop-shadow-color-white);
@@ -45,15 +45,16 @@ $polygon-big-high: 80%;
 
 // Classes
 .btn {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
   border: none;
   padding: 2rem;
-  width: 20rem;
+  width: 22rem;
   font-weight: 700;
   border-radius: 15px;
   background-color: $btn-color-primary;
   color: $text-color-light;
+  cursor: pointer;
   transition: all .2s;
 
   &:hover {

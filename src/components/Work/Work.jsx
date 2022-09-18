@@ -20,7 +20,7 @@ function Work() {
   const [switchWork, setSwitchWork] = useState(true);
 
   return (
-    <div className="work-container">
+    <div id="workSection" className="work-container">
       <div className="content-container">
         <div className="work-heading-container">
           <BsGithub onClick={() => setSwitchWork(true)} className={`work-icon ${switchWork && 'work-icon-active'}`} />

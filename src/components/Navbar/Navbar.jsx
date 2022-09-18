@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
-function Navbar() {
+function Navbar(scrollHandler) {
   const [showHamburger, setShowHamburger] = useState(false);
 
   const hamburgerHandler = () => {
@@ -60,13 +60,13 @@ function Navbar() {
           </ul>
         </div>
       </div>
-      <div className='flex-navigation'>
-        <a href="/">Home</a>
-        <a href="/">Work</a>
-        <a href="/">About</a>
-        <a href="/">Contact</a>
+      <ul className='flex-navigation'>
+        <li onClick={() => scrollHandler('hero')}>Home</li>
+        <li onClick={() => scrollHandler('work')}>Work</li>
+        <li onClick={() => scrollHandler('about')}>About</li>
+        <li onClick={() => scrollHandler('contact')}>Contact</li>
         <BsFillMoonFill className="nav-dark-light-toggle" />
-      </div>
+      </ul>
     </nav>
   );
 }

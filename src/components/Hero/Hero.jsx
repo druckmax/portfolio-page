@@ -1,11 +1,11 @@
 import React from "react";
-import test_avatar from "./img/avatar-grey-opaque.png";
+import test_avatar from "./img/avatar-white-edit.png";
 
 import "./_Hero.scss";
 
-function Hero() {
+function Hero({scrollRef}) {
   return (
-    <div className="hero-container">
+    <div ref={scrollRef} className="hero-container">
       <div className="hero-container--text">
         <h1>Hey I'm Max...</h1>
         <div className="sub-heading">

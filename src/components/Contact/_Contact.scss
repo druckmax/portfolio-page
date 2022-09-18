@@ -28,6 +28,29 @@
   .contact-heading {
     text-align: center;
 
+    @keyframes bellRinging {
+      from {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-15deg);
+      }
+      75%{
+        transform: rotate(15deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    img {
+      position: relative;
+      animation-duration: .3s;
+      animation-delay: .3s;
+      animation-iteration-count: 4;
+      animation-timing-function: ease-in-out;
+    }
+
     h2 {
       font-family: $font-heading;
       text-transform: uppercase;
@@ -56,12 +79,17 @@
         padding: 1rem;
         border: none;
         border-radius: 4px;
+        font-family: $font-main;
       }
+
       textarea {
-        min-height: 15rem;
+        min-height: 20rem;
+        min-width: 20rem;
+        max-width: 100rem;
       }
     }
   }
+
   .btn-contact {
     margin: 3rem 0 0 0;
     font-size: 2rem;

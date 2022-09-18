@@ -11,6 +11,7 @@
 
   .nav-logo-container {
     width: 0;
+
     .nav-logo-name {
       max-width: 15rem;
     }
@@ -21,13 +22,11 @@
     display: flex;
     justify-content: space-between;
     display: none;
+    list-style-type: none;
+    font-size: 2rem;
 
     @include respond(desktop-lg) {
       display: flex;
-    }
-
-    a {
-      font-size: 2rem;
     }
 
     .nav-dark-light-toggle {
@@ -161,16 +160,18 @@
   }
 }
 
-a {
+li {
   font-family: $font-heading;
   text-transform: uppercase;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $btn-color-primary;
+  }
 }
 
-a:hover{
-  color: $btn-color-primary;
-}
 
 .nav-dark-light-toggle {
   cursor: pointer;
@@ -178,6 +179,7 @@ a:hover{
   &:hover {
     color: $btn-color-primary-blue;
   }
+
   &:active {
     color: darken($btn-color-primary, $amount: 20);
   }
