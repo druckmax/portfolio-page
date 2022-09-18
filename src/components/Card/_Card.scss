@@ -4,24 +4,44 @@
   position: relative;
   z-index: 1;
   width: 40rem;
-  height: 30rem;
+  height: 35rem;
   min-width: 25rem;
   min-height: 18rem;
   margin: auto;
   // margin-bottom: 5rem;
+  box-shadow: 0 0 0 1rem #1f1f1f52, 0 0 0 2rem #6262620b;
 
-  background-color: #fff;
+  background-color: #111;
   border-radius: 15px;
+  cursor: pointer;
+  // background-size: cover !important;
+  transition: all .4s ease-in-out;
   overflow: hidden;
 
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
   .card-description {
-    background-color: $bg-color-work-descr;
-    opacity: .9;
     position: absolute;
     width: 100%;
     padding: 1rem;
+    line-height: 1.8;
     bottom: 0;
     left: 0;
     text-align: center;
+    background-color: #222;
+    cursor: default;
+
+    p {
+      text-align: left;
+    }
   }
 }

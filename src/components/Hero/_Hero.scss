@@ -31,6 +31,7 @@
       position: absolute;
       right: 0;
       z-index: 5;
+      transform: translate(5rem, 5rem);
     }
   }
 
@@ -77,6 +78,20 @@
 
     .hero-btn {
       margin-top: 4rem;
+
+      &:hover {
+        box-shadow:
+        0 0 0 2rem rgba(255, 255, 255, 0.05),
+        0 0 0 4rem rgba(150, 150, 150, 0.1),
+        0 0 0 6rem rgba(94, 94, 94, 0.1);
+      }
+
+      &:active {
+        box-shadow:
+        0 0 0 1rem rgba(255, 255, 255, 0.1),
+        0 0 0 2rem rgba(150, 150, 150, 0.2),
+        0 0 0 3rem rgba(94, 94, 94, 0.2);
+      }
     }
   }
 

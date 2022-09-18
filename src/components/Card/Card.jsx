@@ -1,12 +1,13 @@
 import React from 'react'
 import './_Card.scss'
 
-function Card() {
+function Card({img, title, children}) {
   return (
-    <div className='card-container'>
+    <div className='card-container' /* style={{background: `url(${img}) no-repeat center center/cover`}} */>
+      <img src={img} alt="" />
       <div className='card-description'>
-        <h3>Website Description</h3>
-        <p>Technologies Used</p>
+        <h3>{title}</h3>
+        <p>{children}</p>
       </div>
     </div>
   )

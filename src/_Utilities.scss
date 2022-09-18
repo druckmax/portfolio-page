@@ -6,7 +6,7 @@ $text-color-dark: #222;
 $bg-color-black: #090909;
 $bg-color-dark-grey: #0f0f0f;
 $bg-color-grey: #1a1a1a;
-$bg-color-work-descr: #555;
+$bg-color-work-descr: #000;
 
 $drop-shadow-color-white: #ffffff15;
 
@@ -16,7 +16,7 @@ $drop-shadow-white-20-invert: drop-shadow(0 -20px 0px $drop-shadow-color-white);
 $drop-shadow-white-40: drop-shadow(0 50px 1px $drop-shadow-color-white);
 $drop-shadow-white-40-invert: drop-shadow(0 -50px 1px $drop-shadow-color-white);
 
-$btn-color-primary: #FF7D6B;
+$btn-color-primary: #F6476F;
 $btn-color-secondary: #148EA9;
 
 // Light Theme
@@ -45,22 +45,23 @@ $polygon-big-high: 80%;
 
 // Classes
 .btn {
-  font-size: 2rem;
+  font-size: 2.2rem;
   text-transform: uppercase;
   border: none;
   padding: 2rem;
   width: 20rem;
-  font-weight: 500;
+  font-weight: 700;
   border-radius: 15px;
   background-color: $btn-color-primary;
-  transition: all .1s;
+  color: $text-color-light;
+  transition: all .2s;
 
   &:hover {
-    background-color: darken($btn-color-primary, $amount: 5);
-    transform: translateY(-1px)
+    background-color: darken($btn-color-primary, $amount: 10);
+    transform: translateY(-1px);
   }
   &:active {
-    background-color: darken($btn-color-primary, $amount: 10);
+    background-color: darken($btn-color-primary, $amount: 20);
     transform: translateY(1px)
   }
 }

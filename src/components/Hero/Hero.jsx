@@ -1,5 +1,5 @@
 import React from "react";
-import test_avatar from "./img/test-avatar.png";
+import test_avatar from "./img/avatar-grey-opaque.png";
 
 import "./_Hero.scss";
 
