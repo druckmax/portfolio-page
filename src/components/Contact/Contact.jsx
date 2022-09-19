@@ -42,10 +42,10 @@ function Contact() {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...formValues }),
       });
-      // if(!response.ok) {
-      //   const message = `An error has occurred: ${response.status}`;
-      //   throw new Error(message)
-      // }
+      if(!response.ok) {
+        const message = `An error has occurred: ${response.status}`;
+        throw new Error(message)
+      }
       toast.success("Thanks for your submit");
       setSubmitSuccess(true);
       setTimeout(() => setSubmitSuccess(false), 2000);
