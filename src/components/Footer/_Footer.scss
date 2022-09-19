@@ -22,6 +22,26 @@ footer {
       width: 33%;
     }
 
+    .scroll-to-top {
+      width: 33%;
+
+      .arrow-up {
+        text-transform: uppercase;
+        font-size: 4rem;
+        padding: .5rem;
+        border-radius: 50%;
+        background-color: #eee;
+        color: $text-color-dark;
+        cursor: pointer;
+        transition: all .1s;
+
+        &:hover {
+          transform: scale(1.1);
+          color: $btn-color-primary;
+        }
+      }
+    }
+
     div:last-child {
       text-align: right;
     }
@@ -31,6 +51,11 @@ footer {
       display: flex;
       justify-content: space-around;
       align-items: center;
+
+      & *:hover {
+        cursor: pointer;
+        color: $btn-color-primary;
+      }
     }
 
   }

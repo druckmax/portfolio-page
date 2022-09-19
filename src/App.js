@@ -6,22 +6,21 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
-
 import { useContext } from "react";
 import { MainContext } from "./Context";
 
 function App() {
-  const {heroRef} = useContext(MainContext)
+  const { heroRef } = useContext(MainContext);
 
   return (
-      <div ref={heroRef} className="wrapper">
-        <Navbar />
-        <Hero />
-        <Work />
-        <About />
-        <Contact />
-        <Footer />
-      </div>
+    <div ref={heroRef} className="wrapper">
+      <Navbar />
+      <Hero />
+      <Work />
+      <About />
+      <Contact />
+      <Footer />
+    </div>
   );
 }
 

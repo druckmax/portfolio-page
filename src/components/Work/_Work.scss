@@ -25,6 +25,7 @@
     @include respond(desktop-lg) {
       clip-path: polygon(0 $polygon-big-low, 100% 0, 100% 100%, 0 $polygon-big-high);
       padding: 30rem 0;
+      transform: translateY(-3rem);
     }
   }
 
@@ -69,8 +70,8 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
-    padding-bottom: 5rem;
+    gap: 6rem;
+    padding-bottom: 4rem;
 
   }
 

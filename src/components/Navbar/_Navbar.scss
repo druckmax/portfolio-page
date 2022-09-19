@@ -116,10 +116,11 @@
       height: 100vh;
       display: flex;
       align-items: center;
-      transform: translateX(100%);
+      transform: translateY(-100%);
       visibility: hidden;
-      transition: all .5s ease-in-out;
+      transition: all 0.3s ease-in-out;
       z-index: 50;
+      opacity: 0;
 
       @include respond(desktop-lg) {
         display: none;
@@ -131,7 +132,7 @@
         width: 100vw;
         height: 100%;
         background-color: $bg-color-black;
-        opacity: .95;
+        opacity: 0.95;
       }
 
       .toggle-menu-content {
@@ -155,8 +156,9 @@
     }
 
     .show-toggle-menu {
-      transform: translateX(0);
+      transform: translateY(0);
       visibility: visible;
+      opacity: 1;
     }
   }
 }

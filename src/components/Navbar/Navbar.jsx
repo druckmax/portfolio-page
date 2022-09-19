@@ -2,38 +2,22 @@ import React from "react";
 import logoWhite from "./img/logoWhite.png";
 import "./_Navbar.scss";
 
-import { useContext, useState, useRef } from "react";
+import { useContext,  } from "react";
 import { MainContext } from "../../Context";
 
-import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { /* BsFillSunFill, */ BsFillMoonFill } from "react-icons/bs";
 
 function Navbar() {
-  const { heroRef, workRef, aboutRef, contactRef } = useContext(MainContext);
-  const [showHamburger, setShowHamburger] = useState(false);
-  const hamburgerToggle = useRef(null);
-
-  const hamburgerHandler = () => {
-    if (showHamburger) {
-      setShowHamburger(false);
-      console.log(hamburgerToggle.current)
-      hamburgerToggle.current.checked = false;
-      document.body.style.overflowY = "auto";
-    } else {
-      setShowHamburger(true);
-      hamburgerToggle.current.checked = true;
-      document.body.style.overflowY = "hidden";
-    }
-  };
-
-  const scrollHandler = (currentRef) => {
-    hamburgerHandler();
-    
-    let options = { behavior: "smooth", block: "center" };
-    if (currentRef.current.className === "wrapper")
-      options = { ...options, block: "start" };
-
-    currentRef.current.scrollIntoView(options);
-  };
+  const {
+    heroRef,
+    workRef,
+    aboutRef,
+    contactRef,
+    showHamburger,
+    scrollHandler,
+    hamburgerHandler,
+    hamburgerToggle,
+  } = useContext(MainContext);
 
   return (
     <nav className="navbar">

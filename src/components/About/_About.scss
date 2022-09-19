@@ -30,6 +30,11 @@
     position: relative;
     z-index: 1;
 
+    @include respond(desktop-lg) {
+      top: -3rem;
+
+    }
+
     h2 {
       font-family: $font-heading;
       text-transform: uppercase;

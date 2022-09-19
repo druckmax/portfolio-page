@@ -35,19 +35,19 @@ function Work() {
 
         {switchWork ? (
           <div className="github-container">
-            <Card img={previewMeme} title="Never-Gonna-GIF-You-Up">
+            <Card img={previewMeme} title="Never-Gonna-GIF-You-Up" url='https://never-gonna-gif-you-up.netlify.app' repo='https://github.com/druckmax/never-gonna-GIF-you-up'>
               Find your favorite GIFs or create your own memes. Built with React
               and Sass, using the Giphy and imgur APIs.
             </Card>
-            <Card img={previewCantina} title="La Cantina Restaurant Page">
+            <Card img={previewCantina} title="La Cantina Restaurant Page" url='https://github.com/druckmax/La_Cantina_2.0' repo='https://github.com/druckmax/La_Cantina_2.0'>
               A static restaurant page built for La Cantina, a Tapas Bar in
-              Leipzig.
+              Leipzig. Work in progress. <br/>
             </Card>
-            <Card img={previewGithub} title="Github Finder">
+            <Card img={previewGithub} title="Github Finder" url='https://react-github-finder-app-druckmax.netlify.app' repo='https://github.com/druckmax/React_Github_Finder'>
               A github finder application, using the Github API. Searchs for
               users and displays the profile. Built with React and Tailwind.
             </Card>
-            <Card img={previewWeather} title="React Weather Forecast">
+            <Card img={previewWeather} title="React Weather Forecast" url='https://react-weather-forecast-91.netlify.app' repo='https://github.com/druckmax/React_weather_app'>
               Fetch weather data depending on your location. Fetches data from
               OpenWeather API. Does reverse geocoding using Geolocation and
               Geoapify API.
@@ -55,19 +55,19 @@ function Work() {
           </div>
         ) : (
           <div className="github-container codepen-container">
-            <Card img={rgbGame} title="RGB Guessing Game">
+            <Card img={rgbGame} title="RGB Guessing Game" url='https://codepen.io/druckmax/pen/NWYrOrR'>
               Find your favorite GIFs or create your own memes. Built with React
               and Sass, using the Giphy and imgur APIs.
             </Card>
-            <Card img={chronometer} title="React Chronometer">
+            <Card img={chronometer} title="React Chronometer" url='https://codepen.io/druckmax/pen/xxWarPr'>
               A static restaurant page built for La Cantina, a Tapas Bar in
               Leipzig.
             </Card>
-            <Card img={colorGenerator} title="Random Color Generator">
+            <Card img={colorGenerator} title="Random Color Generator" url='https://codepen.io/druckmax/pen/RwMrMQJ'>
               A github finder application, using the Github API. Searchs for
               users and displays the profile. Built with React and Tailwind.
             </Card>
-            <Card img={vacationCountdown} title="Vacation Countdown">
+            <Card img={vacationCountdown} title="Vacation Countdown" url='https://codepen.io/druckmax/pen/poLENqp'>
               Fetch weather data depending on your location. Fetches data from
               OpenWeather API. Does reverse geocoding using Geolocation and
               Geoapify API.

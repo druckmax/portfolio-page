@@ -14,7 +14,7 @@ const encode = (data) => {
 };
 
 function Contact() {
-  const {contactRef} =useContext(MainContext)
+  const { contactRef } = useContext(MainContext);
 
   const initialValues = {
     name: "",
@@ -47,8 +47,8 @@ function Contact() {
       //   throw new Error(message)
       // }
       toast.success("Thanks for your submit");
-      setSubmitSuccess(true)
-      setTimeout(() => setSubmitSuccess(false), 2000)
+      setSubmitSuccess(true);
+      setTimeout(() => setSubmitSuccess(false), 2000);
     } catch (error) {
       toast.error("Sorry, something went wrong");
       console.error(error.message);
@@ -61,7 +61,11 @@ function Contact() {
       <div ref={contactRef} className="contact-container">
         <div className="content-container">
           <div className="contact-heading">
-            <img src={bell} alt="bell icon" style={{ animationName: submitSuccess && 'bellRinging'}} />
+            <img
+              src={bell}
+              alt="bell icon"
+              style={{ animationName: submitSuccess && "bellRinging" }}
+            />
             <h2>Contact</h2>
           </div>
           <form onSubmit={handleSubmit} name="contact" method="">
