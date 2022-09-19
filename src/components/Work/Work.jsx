@@ -8,14 +8,14 @@ import { BsGithub } from "react-icons/bs";
 import { FaCodepen } from "react-icons/fa";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-import previewMeme from "./img/preview-meme.png";
-import previewCantina from "./img/preview-cantina.png";
-import previewGithub from "./img/preview-github.png";
+import previewMeme from "./img/preview-meme.jpg";
+import previewCantina from "./img/preview-cantina.jpg";
+import previewGithub from "./img/preview-github.jpg";
 import previewWeather from "./img/preview-weather.png";
-import rgbGame from './img/rgb-guessing-game.png'
-import chronometer from './img/react-chronometer.png'
-import colorGenerator from './img/random-color-generator.png'
-import vacationCountdown from './img/vacation-counter.png'
+import rgbGame from './img/rgb-guessing-game.jpg'
+import chronometer from './img/react-chronometer.jpg'
+import colorGenerator from './img/random-color-generator.jpg'
+import vacationCountdown from './img/vacation-counter.jpg'
 
 function Work() {
   const {workRef} = useContext(MainContext)
