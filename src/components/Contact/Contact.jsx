@@ -68,10 +68,10 @@ function Contact() {
             />
             <h2>Contact</h2>
           </div>
-          <form onSubmit={handleSubmit} name="contact" method="">
+          <form onSubmit={handleSubmit} name="contact" method="POST">
             <input
               type="hidden"
-              name="subject"
+              name="form-name"
               value="Contact request from Portfolio"
             />
             <div className="input-group">
