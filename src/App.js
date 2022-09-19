@@ -6,27 +6,22 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
-import { useRef } from "react";
+
+import { useContext } from "react";
+import { MainContext } from "./Context";
 
 function App() {
-const scrollRef = useRef(null)
-
-console.log(scrollRef)
-
-  const scrollHandler = (currentRef) => {
-    currentRef.current.scrollIntoView();
-  };
+  const {heroRef} = useContext(MainContext)
 
   return (
-    <div className="wrapper">
-      <Navbar scrollHandler={scrollHandler} />
-      <Hero />
-      <Work /* refObj={workRef} */ />
-      <About /* refObj={aboutRef} */ />
-      <Contact /* refObj={contactRef} */ />
-      <Footer />
-      <div ref={scrollRef}></div>
-    </div>
+      <div ref={heroRef} className="wrapper">
+        <Navbar />
+        <Hero />
+        <Work />
+        <About />
+        <Contact />
+        <Footer />
+      </div>
   );
 }
 

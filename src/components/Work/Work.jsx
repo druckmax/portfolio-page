@@ -1,7 +1,8 @@
 import React from "react";
 import "./_Work.scss";
 import Card from "../Card/Card";
-import { useState } from "react";
+import { MainContext } from "../../Context";
+import { useState, useContext } from "react";
 
 import { BsGithub } from "react-icons/bs";
 import { FaCodepen } from "react-icons/fa";
@@ -17,10 +18,11 @@ import colorGenerator from './img/random-color-generator.png'
 import vacationCountdown from './img/vacation-counter.png'
 
 function Work() {
+  const {workRef} = useContext(MainContext)
   const [switchWork, setSwitchWork] = useState(true);
 
   return (
-    <div id="workSection" className="work-container">
+    <div ref={workRef} className="work-container">
       <div className="content-container">
         <div className="work-heading-container">
           <BsGithub onClick={() => setSwitchWork(true)} className={`work-icon ${switchWork && 'work-icon-active'}`} />

@@ -75,15 +75,16 @@
   }
 
   .arrow-container {
-    width: 90%;
+    width: 95%;
     max-width: 125rem;
     font-size: 3rem;
     display: flex;
     justify-content: space-between;
     position: absolute;
-    top: 51%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 10;
 
     .arrow {
       cursor: pointer;

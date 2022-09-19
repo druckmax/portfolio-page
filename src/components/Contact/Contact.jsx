@@ -1,10 +1,12 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import "./_Contact.scss";
-import { useReducer, useState } from "react";
+import { MainContext } from "../../Context";
+import { useReducer, useState, useContext } from "react";
 
 import bell from "./img/bell-white.png";
 
+// Encode data for form submission
 const encode = (data) => {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -12,6 +14,8 @@ const encode = (data) => {
 };
 
 function Contact() {
+  const {contactRef} =useContext(MainContext)
+
   const initialValues = {
     name: "",
     email: "",
@@ -54,7 +58,7 @@ function Contact() {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="contact-container">
+      <div ref={contactRef} className="contact-container">
         <div className="content-container">
           <div className="contact-heading">
             <img src={bell} alt="bell icon" style={{ animationName: submitSuccess && 'bellRinging'}} />

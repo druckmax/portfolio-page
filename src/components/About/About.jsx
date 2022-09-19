@@ -1,5 +1,7 @@
 import React from "react";
 import './_About.scss'
+import { MainContext } from "../../Context";
+import { useContext } from "react";
 
 import css from './img/css.png'
 import html from './img/html.png'
@@ -10,8 +12,9 @@ import react from './img/react.png'
 import sass from './img/sass.png'
 
 function About() {
+  const {aboutRef} = useContext(MainContext)
   return (
-    <div className="about-background-wrapper">
+    <div ref={aboutRef} className="about-background-wrapper">
       <div className="about-container">
         <div className="about-content">
           <h2>About</h2>

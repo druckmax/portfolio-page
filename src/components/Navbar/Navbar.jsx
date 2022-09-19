@@ -2,11 +2,13 @@ import React from "react";
 import logoWhite from "./img/logoWhite.png";
 import "./_Navbar.scss";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { MainContext } from "../../Context";
 
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
-function Navbar(scrollHandler) {
+function Navbar() {
+  const { heroRef, workRef, aboutRef, contactRef } = useContext(MainContext);
   const [showHamburger, setShowHamburger] = useState(false);
 
   const hamburgerHandler = () => {
@@ -17,6 +19,16 @@ function Navbar(scrollHandler) {
       setShowHamburger(true);
       document.body.style.overflowY = "hidden";
     }
+  };
+
+  const scrollHandler = (currentRef) => {
+    hamburgerHandler();
+    
+    let options = { behavior: "smooth", block: "center" };
+    if (currentRef.current.className === "wrapper")
+      options = { ...options, block: "start" };
+
+    currentRef.current.scrollIntoView(options);
   };
 
   return (
@@ -42,29 +54,21 @@ function Navbar(scrollHandler) {
         </div>
         <div className={`toggle-menu ${showHamburger && "show-toggle-menu"}`}>
           <ul className="toggle-menu-content">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">Work</a>
-            </li>
-            <li>
-              <a href="/">About</a>
-            </li>
-            <li>
-              <a href="/">Contact</a>
-            </li>
+            <li onClick={() => scrollHandler(heroRef)}>Home</li>
+            <li onClick={() => scrollHandler(workRef)}>Work</li>
+            <li onClick={() => scrollHandler(aboutRef)}>About</li>
+            <li onClick={() => scrollHandler(contactRef)}>Contact</li>
             <li>
               <BsFillMoonFill className="nav-dark-light-toggle" />
             </li>
           </ul>
         </div>
       </div>
-      <ul className='flex-navigation'>
-        <li onClick={() => scrollHandler('hero')}>Home</li>
-        <li onClick={() => scrollHandler('work')}>Work</li>
-        <li onClick={() => scrollHandler('about')}>About</li>
-        <li onClick={() => scrollHandler('contact')}>Contact</li>
+      <ul className="flex-navigation">
+        <li onClick={() => scrollHandler(heroRef)}>Home</li>
+        <li onClick={() => scrollHandler(workRef)}>Work</li>
+        <li onClick={() => scrollHandler(aboutRef)}>About</li>
+        <li onClick={() => scrollHandler(contactRef)}>Contact</li>
         <BsFillMoonFill className="nav-dark-light-toggle" />
       </ul>
     </nav>
