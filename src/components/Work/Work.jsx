@@ -83,8 +83,7 @@ function Work() {
               title="RGB Guessing Game"
               url="https://codepen.io/druckmax/pen/NWYrOrR"
             >
-              Find your favorite GIFs or create your own memes. Built with React and
-              Sass, using the Giphy and imgur APIs.
+              A simple game that makes you guess the color of an rgb value.
             </Card>
             <Card
               img={chronometer}
@@ -99,17 +98,16 @@ function Work() {
               title="Random Color Generator"
               url="https://codepen.io/druckmax/pen/RwMrMQJ"
             >
-              A github finder application, using the Github API. Searchs for users
-              and displays the profile. Built with React and Tailwind.
+              A small app that creates a random color hex-code and sets the color as
+              background for the card-item.
             </Card>
             <Card
               img={vacationCountdown}
               title="Vacation Countdown"
               url="https://codepen.io/druckmax/pen/poLENqp"
             >
-              Fetch weather data depending on your location. Fetches data from
-              OpenWeather API. Does reverse geocoding using Geolocation and Geoapify
-              API.
+              A countdown component which shows you how long you have to wait for
+              your well deserved vacation.
             </Card>
           </div>
         )}
