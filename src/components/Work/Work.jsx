@@ -11,7 +11,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import previewMeme from "./img/preview-meme.jpg";
 import previewCantina from "./img/preview-cantina.jpg";
 import previewGithub from "./img/preview-github.jpg";
-import previewWeather from "./img/preview-weather.png";
+import previewVenu from "./img/preview-venu.png";
 import rgbGame from "./img/rgb-guessing-game.jpg";
 import chronometer from "./img/react-chronometer.jpg";
 import colorGenerator from "./img/random-color-generator.jpg";
@@ -39,6 +39,16 @@ function Work() {
         {switchWork ? (
           <div className="github-container">
             <Card
+              img={previewVenu}
+              title="VENU"
+              url="https://venu-frontend.onrender.com/"
+              repo="https://github.com/Final-Countdown-Team/Venu-Frontend"
+            >
+              VENU is an app to help connect venues and musicians. This project was
+              the final project during the web-development bootcamp at DCI. It uses
+              the MERN-Stack.
+            </Card>
+            <Card
               img={previewMeme}
               title="Never-Gonna-GIF-You-Up"
               url="https://never-gonna-gif-you-up.netlify.app"
@@ -64,16 +74,6 @@ function Work() {
             >
               A github finder application, using the Github API. Searchs for users
               and displays the profile. Built with React and Tailwind.
-            </Card>
-            <Card
-              img={previewWeather}
-              title="React Weather Forecast"
-              url="https://react-weather-forecast-91.netlify.app"
-              repo="https://github.com/druckmax/React_weather_app"
-            >
-              Fetch weather data depending on your location. Fetches data from
-              OpenWeather API. Does reverse geocoding using Geolocation and Geoapify
-              API.
             </Card>
           </div>
         ) : (
