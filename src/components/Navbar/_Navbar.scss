@@ -1,4 +1,5 @@
-@import '../../Utilities';
+@use "sass:color";
+@use '../../Utilities' as *;
 
 .navbar {
   width: 90%;
@@ -184,6 +185,6 @@ li {
   }
 
   &:active {
-    color: darken($btn-color-primary, $amount: 20);
+    color: color.adjust($btn-color-primary, $lightness: -20%);
   }
 }

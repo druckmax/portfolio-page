@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 // Dark Theme
@@ -57,11 +58,11 @@ $polygon-big-high: 80%;
   transition: all .2s;
 
   &:hover {
-    background-color: darken($btn-color-primary, $amount: 10);
+    background-color: color.adjust($btn-color-primary, $lightness: -10%);
     transform: translateY(-1px);
   }
   &:active {
-    background-color: darken($btn-color-primary, $amount: 20);
+    background-color: color.adjust($btn-color-primary, $lightness: -20%);
     transform: translateY(1px)
   }
 }

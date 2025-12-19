@@ -1,4 +1,4 @@
-@import './Utilities';
+@use './Utilities' as *;
 
 .wrapper {
   background-color: $bg-color-black;
@@ -15,6 +15,6 @@
     position: fixed;
     background: url(./img/bg-dark-edit-02.jpg) no-repeat center center/cover;
     // filter: invert(1);
-    opacity: .4;
+    opacity: 0.4;
   }
 }

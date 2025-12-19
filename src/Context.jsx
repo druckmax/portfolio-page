@@ -1,5 +1,5 @@
-import React from "react";
-import { createContext, useRef, useState } from "react";
+import React from 'react';
+import { createContext, useRef, useState } from 'react';
 
 export const MainContext = createContext();
 
@@ -16,30 +16,28 @@ export function ContextProvider({ children }) {
     if (showHamburger) {
       setShowHamburger(false);
       hamburgerToggle.current.checked = false;
-      document.body.style.overflowY = "auto";
+      document.body.style.overflowY = 'auto';
     } else {
       setShowHamburger(true);
       hamburgerToggle.current.checked = true;
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = 'hidden';
     }
   };
 
-  let options = { behavior: "smooth", block: "center" };
+  let options = { behavior: 'smooth', block: 'center' };
 
   const scrollHandler = (currentRef) => {
-    if (currentRef.current.className === "wrapper")
-      options = { ...options, block: "start" };
+    if (currentRef.current.className === 'wrapper') options = { ...options, block: 'start' };
 
     if (window.innerWidth < 1200) {
       hamburgerHandler();
-      options = { behavior: "smooth", block: "start" };
+      options = { behavior: 'smooth', block: 'start' };
     }
     currentRef.current.scrollIntoView(options);
   };
 
   const heroScrollHandler = (currentRef) => {
-    if (currentRef.current.className === "wrapper")
-      options = { ...options, block: "start" };
+    if (currentRef.current.className === 'wrapper') options = { ...options, block: 'start' };
 
     currentRef.current.scrollIntoView(options);
   };

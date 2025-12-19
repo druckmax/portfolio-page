@@ -1,4 +1,5 @@
-@import "../../Utilities.scss";
+@use 'sass:color';
+@use "../../Utilities" as *;
 
 .card-container {
   position: relative;
