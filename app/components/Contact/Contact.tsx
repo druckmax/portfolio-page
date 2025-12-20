@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useContext, useState, useReducer, ChangeEvent, FormEvent } from 'react';
+import { type ChangeEvent, type FormEvent, useReducer, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import './_Contact.scss';
-import { MainContext } from '@/app/context/Context';
 
+import { getTranslations } from '../i18n/getTranslations';
 import bell from './img/bell-white.png';
 
 interface FormValues {
@@ -16,13 +16,12 @@ interface FormValues {
 // Encode data for form submission
 const encode = (data: FormValues): string => {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key as keyof FormValues]))
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key as keyof FormValues])}`)
     .join('&');
 };
 
 export default function Contact() {
-  const context = useContext(MainContext);
-
+  const t = getTranslations();
   const initialValues: FormValues = {
     name: '',
     email: '',
@@ -36,12 +35,6 @@ export default function Contact() {
 
   const { name, email, message } = formValues;
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  if (!context) {
-    return null;
-  }
-
-  const { contactRef } = context;
 
   const handleFormChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -72,7 +65,7 @@ export default function Contact() {
   return (
     <>
       <Toaster position="top-center" />
-      <div ref={contactRef} className="contact-container">
+      <div id="contact" className="contact-container">
         <div className="content-container">
           <div className="contact-heading">
             <img
@@ -80,12 +73,12 @@ export default function Contact() {
               alt="bell icon"
               style={{ animationName: submitSuccess ? 'bellRinging' : undefined }}
             />
-            <h2>Contact</h2>
+            <h2>{t('contact.headline')}</h2>
           </div>
           <form onSubmit={handleSubmit} name="contact" method="POST">
             <input type="hidden" name="form-name" value="Contact request from Portfolio" />
             <div className="input-group">
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="name">{t('contact.name.label')}</label>
               <input
                 type="text"
                 id="name"
@@ -95,10 +88,11 @@ export default function Contact() {
                 required
                 value={name}
                 onChange={handleFormChange}
+                placeholder={t('contact.name.placeholder')}
               />
             </div>
             <div className="input-group">
-              <label htmlFor="email">Your Email:</label>
+              <label htmlFor="email">{t('contact.email.label')}</label>
               <input
                 type="email"
                 id="email"
@@ -107,23 +101,24 @@ export default function Contact() {
                 required
                 value={email}
                 onChange={handleFormChange}
+                placeholder={t('contact.email.placeholder')}
               />
             </div>
             <div className="input-group">
-              <label htmlFor="message">Message:</label>
+              <label htmlFor="message">{t('contact.message.label')}</label>
               <textarea
                 name="message"
                 id="message"
-                placeholder="Write me a message :)"
                 minLength={20}
                 maxLength={1000}
                 value={message}
                 required
                 onChange={handleFormChange}
+                placeholder={t('contact.message.placeholder')}
               />
             </div>
             <button className="btn btn-contact" type="submit">
-              Contact Me
+              {t('contact.cta')}
             </button>
           </form>
         </div>

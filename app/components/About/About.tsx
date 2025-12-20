@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useContext } from 'react';
+import { getTranslations } from '../i18n/getTranslations';
 import './_About.scss';
-import { MainContext } from '@/app/context/Context';
 
 import css from './img/css.png';
 import html from './img/html.png';
@@ -12,35 +11,32 @@ import nodejs from './img/nodejs.png';
 import react from './img/react.png';
 import sass from './img/sass.png';
 
+const iconMap = [
+  { src: html.src, alt: 'html icon' },
+  { src: css.src, alt: 'css icon' },
+  { src: sass.src, alt: 'sass icon' },
+  { src: javascript.src, alt: 'javascript icon' },
+  { src: react.src, alt: 'react icon' },
+  { src: nodejs.src, alt: 'nodejs icon' },
+  { src: mongodb.src, alt: 'mongodb icon' },
+];
+
 export default function About() {
-  const context = useContext(MainContext);
-
-  if (!context) {
-    return null;
-  }
-
-  const { aboutRef } = context;
-
+  const t = getTranslations();
   return (
-    <div ref={aboutRef} className="about-background-wrapper">
+    <div id="about" className="about-background-wrapper">
       <div className="about-container">
         <div className="about-content">
-          <h2>About</h2>
-          <p className="general">
-            I enjoy giving 100% to create appealing designs and translate them to be fully
-            responsive and to look amazing on every device. I always seek new challenges and never
-            stop learning and improving my skills.
-          </p>
+          <h2>{t('about.headline')}</h2>
+          <p className="general">{t('about.general')}</p>
           <div className="about-section technical">
-            <h3>Technical</h3>
-            <p>
-              I feel most comfortable being around HTML, CSS, Sass and Javascript. Currently I am
-              learning React.js and looking forward to extend my skills towards the backend (dark)
-              side. For that I&apos;ve got Node.js, Express.js and MongoDB on my list, to eventually
-              build a complete MERN stack.
-            </p>
+            <h3>{t('about.headlineTech')}</h3>
+            <p>{t('about.tech')}</p>
           </div>
           <div className="technologies-icons">
+            {iconMap.map((icon) => {
+              return <img key={icon.src} src={icon.src} alt={icon.alt} />;
+            })}
             <img src={html.src} alt="html icon" />
             <img src={css.src} alt="css icon" />
             <img src={sass.src} alt="sass icon" />
@@ -50,12 +46,8 @@ export default function About() {
             <img src={mongodb.src} alt="mongodb icon" />
           </div>
           <div className="about-section personal">
-            <h3>Personal</h3>
-            <p>
-              I grew up in a small town near Frankfurt am Main, and moved to Leipzig in 2015. I
-              studied Sound and Music Production in Darmstadt and call myself an ambitious amateur
-              boulderer/climber.
-            </p>
+            <h3>{t('about.headlinePersonal')}</h3>
+            <p>{t('about.personal')}</p>
           </div>
         </div>
       </div>

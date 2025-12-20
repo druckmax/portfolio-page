@@ -1,7 +1,6 @@
-import { ContextProvider } from '@/app/context/Context';
 import type { ReactNode } from 'react';
-import './globals.scss';
 import './App.scss';
+import './globals.scss';
 
 export const metadata = {
   title: 'Portfolio',
@@ -15,9 +14,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body>
-        <ContextProvider>{children}</ContextProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

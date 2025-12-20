@@ -1,28 +1,18 @@
-'use client';
-
-import React, { useContext } from 'react';
+import { getTranslations } from '../i18n/getTranslations';
 import './_Hero.scss';
 import test_avatar from './img/avatar_bg_edit_01_transparent_small_0.5.png';
-import { MainContext } from '@/app/context/Context';
 
 export default function Hero() {
-  const context = useContext(MainContext);
-
-  if (!context) {
-    return null;
-  }
-
-  const { heroScrollHandler, contactRef } = context;
-
+  const t = getTranslations();
   return (
-    <div className="hero-container">
+    <div id="hero" className="hero-container">
       <div className="hero-container--text">
-        <h1>Hey I&apos;m Max...</h1>
+        <h1>{t('hero.headline')}</h1>
         <div className="sub-heading">
-          <p>I&apos;m a Junior Web Developer and Designer based in Leipzig.</p>
-          <button onClick={() => heroScrollHandler(contactRef)} className="btn hero-btn">
-            Contact me
-          </button>
+          <p>{t('hero.subHeadline')}</p>
+          <a href="#contact" className="btn hero-btn">
+            {t('hero.cta')}
+          </a>
         </div>
       </div>
 

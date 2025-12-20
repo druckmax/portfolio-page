@@ -1,34 +1,25 @@
 'use client';
 
-import React, { useContext, useState } from 'react';
-import './_Work.scss';
-import Card from '../Card/Card';
-import { MainContext } from '@/app/context/Context';
+import { useState } from 'react';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import { BsGithub } from 'react-icons/bs';
 import { FaCodepen } from 'react-icons/fa';
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
-
-import previewMeme from './img/preview-meme.jpg';
+import Card from '../Card/Card';
+import './_Work.scss';
 import previewCantina from './img/preview-cantina.jpg';
 import previewGithub from './img/preview-github.jpg';
+import previewMeme from './img/preview-meme.jpg';
 import previewVenu from './img/preview-venu.png';
-import rgbGame from './img/rgb-guessing-game.jpg';
-import chronometer from './img/react-chronometer.jpg';
 import colorGenerator from './img/random-color-generator.jpg';
+import chronometer from './img/react-chronometer.jpg';
+import rgbGame from './img/rgb-guessing-game.jpg';
 import vacationCountdown from './img/vacation-counter.jpg';
 
 export default function Work() {
-  const context = useContext(MainContext);
   const [switchWork, setSwitchWork] = useState(true);
 
-  if (!context) {
-    return null;
-  }
-
-  const { workRef } = context;
-
   return (
-    <div ref={workRef} className="work-container">
+    <div id="projects" className="work-container">
       <div className="content-container">
         <div className="work-heading-container">
           <BsGithub

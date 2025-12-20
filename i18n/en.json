@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Hey I'm Max...",
+    "subHeadline": "I'm a Junior Web Developer and Designer based in Leipzig.",
+    "cta": "Contact me"
+  },
+  "about": {
+    "headline": "About",
+    "general": "I enjoy giving 100% to create appealing designs and translate them to be fully responsive and to look amazing on every device. I always seek new challenges and never stop learning and improving my skills.",
+    "headlineTech": "Technical",
+    "tech": "I feel most comfortable being around HTML, CSS, Sass and Javascript. Currently I am learning React.js and looking forward to extend my skills towards the backend (dark) side. For that I&apos;ve got Node.js, Express.js and MongoDB on my list, to eventually build a complete MERN stack.",
+    "headlinePersonal": "Personal",
+    "personal": "I grew up in a small town near Frankfurt am Main, and moved to Leipzig in 2015. I studied Sound and Music Production in Darmstadt and call myself an ambitious amateur boulderer/climber."
+  },
+  "contact": {
+    "headline": "Contact",
+    "name": {
+      "label": "Name:",
+      "placeholder": "Your name"
+    },
+    "email": {
+      "label": "Email:",
+      "placeholder": "Your email"
+    },
+    "message": {
+      "label": "Message:",
+      "placeholder": "Write me a message :)"
+    },
+    "cta": "Contact me"
+  }
+}

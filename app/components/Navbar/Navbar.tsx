@@ -1,28 +1,31 @@
 'use client';
 
-import React, { useContext } from 'react';
-import logoWhite from './img/logoWhite.png';
-import './_Navbar.scss';
-import { MainContext } from '@/app/context/Context';
+import { useRef, useState } from 'react';
 import { BsFillMoonFill } from 'react-icons/bs';
+import { getTranslations } from '../i18n/getTranslations';
+import './_Navbar.scss';
+import logoWhite from './img/logoWhite.png';
 
 export default function Navbar() {
-  const context = useContext(MainContext);
+  const [showHamburger, setShowHamburger] = useState(false);
+  const hamburgerToggle = useRef<HTMLInputElement | null>(null);
+  const t = getTranslations()
 
-  if (!context) {
-    return null;
-  }
-
-  const {
-    heroRef,
-    workRef,
-    aboutRef,
-    contactRef,
-    showHamburger,
-    scrollHandler,
-    hamburgerHandler,
-    hamburgerToggle,
-  } = context;
+  const hamburgerHandler = () => {
+    if (showHamburger) {
+      setShowHamburger(false);
+      if (hamburgerToggle.current) {
+        hamburgerToggle.current.checked = false;
+      }
+      document.body.style.overflowY = 'auto';
+    } else {
+      setShowHamburger(true);
+      if (hamburgerToggle.current) {
+        hamburgerToggle.current.checked = true;
+      }
+      document.body.style.overflowY = 'hidden';
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -48,10 +51,18 @@ export default function Navbar() {
         </div>
         <div className={`toggle-menu ${showHamburger && 'show-toggle-menu'}`}>
           <ul className="toggle-menu-content">
-            <li onClick={() => scrollHandler(heroRef)}>Home</li>
-            <li onClick={() => scrollHandler(workRef)}>Work</li>
-            <li onClick={() => scrollHandler(aboutRef)}>About</li>
-            <li onClick={() => scrollHandler(contactRef)}>Contact</li>
+            <li>
+              <a href="#hero">{t("nav.home")}</a>
+            </li>
+            <li>
+              <a href="#projects">{t("nav.projects")}</a>
+            </li>
+            <li>
+              <a href="#about">{t("nav.about")}</a>
+            </li>
+            <li>
+              <a href="contact">{t("nav.contact")}</a>
+            </li>
             <li>
               <BsFillMoonFill className="nav-dark-light-toggle" />
             </li>
@@ -59,10 +70,18 @@ export default function Navbar() {
         </div>
       </div>
       <ul className="flex-navigation">
-        <li onClick={() => scrollHandler(heroRef)}>Home</li>
-        <li onClick={() => scrollHandler(workRef)}>Work</li>
-        <li onClick={() => scrollHandler(aboutRef)}>About</li>
-        <li onClick={() => scrollHandler(contactRef)}>Contact</li>
+        <li>
+          <a href="#hero">{t("nav.home")}</a>
+        </li>
+        <li>
+          <a href="#projects">{t("nav.projects")}</a>
+        </li>
+        <li>
+          <a href="#about">{t("nav.about")}</a>
+        </li>
+        <li>
+          <a href="contact">{t("nav.contact")}</a>
+        </li>
         <BsFillMoonFill className="nav-dark-light-toggle" />
       </ul>
     </nav>

@@ -1,20 +1,10 @@
 'use client';
 
-import React, { useContext } from 'react';
-import './_Footer.scss';
-import { MainContext } from '@/app/context/Context';
-import { BsGithub, BsFillArrowUpCircleFill as ArrowUp } from 'react-icons/bs';
+import { BsFillArrowUpCircleFill as ArrowUp, BsGithub } from 'react-icons/bs';
 import { FaCodepen } from 'react-icons/fa';
+import './_Footer.scss';
 
 export default function Footer() {
-  const context = useContext(MainContext);
-
-  if (!context) {
-    return null;
-  }
-
-  const { heroScrollHandler, heroRef } = context;
-
   return (
     <footer>
       <div className="footer-content">
@@ -27,9 +17,10 @@ export default function Footer() {
             <FaCodepen />
           </a>
         </div>
-        {/* <div>Impressum</div> */}
         <div className="scroll-to-top">
-          <ArrowUp onClick={() => heroScrollHandler(heroRef)} className="arrow-up" />
+          <a href="#hero">
+            <ArrowUp className="arrow-up" />
+          </a>
         </div>
       </div>
     </footer>
