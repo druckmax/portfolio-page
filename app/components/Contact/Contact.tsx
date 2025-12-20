@@ -1,57 +1,71 @@
-import React from "react";
-import toast, { Toaster } from "react-hot-toast";
-import "./_Contact.scss";
-import { MainContext } from "../../Context";
-import { useReducer, useState, useContext } from "react";
+'use client';
 
-import bell from "./img/bell-white.png";
+import React, { useContext, useState, useReducer, ChangeEvent, FormEvent } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import './_Contact.scss';
+import { MainContext } from '@/app/context/Context';
+
+import bell from './img/bell-white.png';
+
+interface FormValues {
+  name: string;
+  email: string;
+  message: string;
+}
 
 // Encode data for form submission
-const encode = (data) => {
+const encode = (data: FormValues): string => {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key as keyof FormValues]))
+    .join('&');
 };
 
-function Contact() {
-  const { contactRef } = useContext(MainContext);
+export default function Contact() {
+  const context = useContext(MainContext);
 
-  const initialValues = {
-    name: "",
-    email: "",
-    message: "",
+  const initialValues: FormValues = {
+    name: '',
+    email: '',
+    message: '',
   };
-  const [formValues, setFormValues] = useReducer(
-    (prevs, values) => ({ ...prevs, ...values }),
-    initialValues
-  );
-  const { name, email, message } = formValues;
 
+  const [formValues, setFormValues] = useReducer(
+    (prevs: FormValues, values: Partial<FormValues>) => ({ ...prevs, ...values }),
+    initialValues,
+  );
+
+  const { name, email, message } = formValues;
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleFormChange = (e) => {
+  if (!context) {
+    return null;
+  }
+
+  const { contactRef } = context;
+
+  const handleFormChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormValues({ [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...formValues }),
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ ...formValues }),
       });
-      if(!response.ok) {
+      if (!response.ok) {
         const message = `An error has occurred: ${response.status}`;
-        throw new Error(message)
+        throw new Error(message);
       }
-      toast.success("Thanks for your submit");
+      toast.success('Thanks for your submit');
       setSubmitSuccess(true);
       setTimeout(() => setSubmitSuccess(false), 2000);
     } catch (error) {
-      toast.error("Sorry, something went wrong");
-      console.error(error.message);
+      toast.error('Sorry, something went wrong');
+      console.error(error instanceof Error ? error.message : 'Unknown error');
     }
   };
 
@@ -62,18 +76,14 @@ function Contact() {
         <div className="content-container">
           <div className="contact-heading">
             <img
-              src={bell}
+              src={bell.src}
               alt="bell icon"
-              style={{ animationName: submitSuccess && "bellRinging" }}
+              style={{ animationName: submitSuccess ? 'bellRinging' : undefined }}
             />
             <h2>Contact</h2>
           </div>
           <form onSubmit={handleSubmit} name="contact" method="POST">
-            <input
-              type="hidden"
-              name="form-name"
-              value="Contact request from Portfolio"
-            />
+            <input type="hidden" name="form-name" value="Contact request from Portfolio" />
             <div className="input-group">
               <label htmlFor="name">Name:</label>
               <input
@@ -121,5 +131,3 @@ function Contact() {
     </>
   );
 }
-
-export default Contact;

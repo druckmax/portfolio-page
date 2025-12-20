@@ -16,8 +16,8 @@ $drop-shadow-white-20-invert: drop-shadow(0 -20px 0px $drop-shadow-color-white);
 $drop-shadow-white-40: drop-shadow(0 50px 1px $drop-shadow-color-white);
 $drop-shadow-white-40-invert: drop-shadow(0 -50px 1px $drop-shadow-color-white);
 
-$btn-color-primary: #F6476F;
-$btn-color-secondary: #148EA9;
+$btn-color-primary: #f6476f;
+$btn-color-secondary: #148ea9;
 
 // Light Theme
 $text-color-light: #f4f4f4;
@@ -28,7 +28,7 @@ $bg-color-dark-white: #eee;
 $box-shadow-dark-10: 0 20px 5px rgba(0, 0, 0, 0.1);
 $box-shadow-dark-10-invert: 0 -20px 5px rgba(0, 0, 0, 0.1);
 
-$btn-color-primary-blue: #148EA9;
+$btn-color-primary-blue: #148ea9;
 
 // General
 $bg-color-work-descr: #555;
@@ -55,7 +55,7 @@ $polygon-big-high: 80%;
   background-color: $btn-color-primary;
   color: $text-color-light;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 
   &:hover {
     background-color: color.adjust($btn-color-primary, $lightness: -10%);
@@ -63,31 +63,36 @@ $polygon-big-high: 80%;
   }
   &:active {
     background-color: color.adjust($btn-color-primary, $lightness: -20%);
-    transform: translateY(1px)
+    transform: translateY(1px);
   }
 }
 
-// ----- Media Queries ----- 
+// ----- Media Queries -----
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone-xs {
-    @media only screen and (max-width: 325px)
-    {@content};
-}
+    @media only screen and (max-width: 325px) {
+      @content;
+    }
+  }
   @if $breakpoint == landscape {
-    @media only screen and (min-width: 600px)
-    {@content};
-}
+    @media only screen and (min-width: 600px) {
+      @content;
+    }
+  }
   @if $breakpoint == medium {
-      @media only screen and (min-width: 800px)
-      {@content};
+    @media only screen and (min-width: 800px) {
+      @content;
+    }
   }
   @if $breakpoint == desktop-lg {
-      @media only screen and (min-width: 1200px)
-      {@content};
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
   }
   @if $breakpoint == desktop-xl {
-      @media only screen and (min-width: 1920px)
-      {@content};
+    @media only screen and (min-width: 1920px) {
+      @content;
+    }
   }
 }

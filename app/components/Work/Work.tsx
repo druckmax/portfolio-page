@@ -1,25 +1,31 @@
-import React from "react";
-import "./_Work.scss";
-import Card from "../Card/Card";
-import { MainContext } from "../../Context";
-import { useState, useContext } from "react";
+'use client';
 
-import { BsGithub } from "react-icons/bs";
-import { FaCodepen } from "react-icons/fa";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import React, { useContext, useState } from 'react';
+import './_Work.scss';
+import Card from '../Card/Card';
+import { MainContext } from '@/app/context/Context';
+import { BsGithub } from 'react-icons/bs';
+import { FaCodepen } from 'react-icons/fa';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
-import previewMeme from "./img/preview-meme.jpg";
-import previewCantina from "./img/preview-cantina.jpg";
-import previewGithub from "./img/preview-github.jpg";
-import previewVenu from "./img/preview-venu.png";
-import rgbGame from "./img/rgb-guessing-game.jpg";
-import chronometer from "./img/react-chronometer.jpg";
-import colorGenerator from "./img/random-color-generator.jpg";
-import vacationCountdown from "./img/vacation-counter.jpg";
+import previewMeme from './img/preview-meme.jpg';
+import previewCantina from './img/preview-cantina.jpg';
+import previewGithub from './img/preview-github.jpg';
+import previewVenu from './img/preview-venu.png';
+import rgbGame from './img/rgb-guessing-game.jpg';
+import chronometer from './img/react-chronometer.jpg';
+import colorGenerator from './img/random-color-generator.jpg';
+import vacationCountdown from './img/vacation-counter.jpg';
 
-function Work() {
-  const { workRef } = useContext(MainContext);
+export default function Work() {
+  const context = useContext(MainContext);
   const [switchWork, setSwitchWork] = useState(true);
+
+  if (!context) {
+    return null;
+  }
+
+  const { workRef } = context;
 
   return (
     <div ref={workRef} className="work-container">
@@ -27,12 +33,12 @@ function Work() {
         <div className="work-heading-container">
           <BsGithub
             onClick={() => setSwitchWork(true)}
-            className={`work-icon ${switchWork && "work-icon-active"}`}
+            className={`work-icon ${switchWork && 'work-icon-active'}`}
           />
           <h2>Work</h2>
           <FaCodepen
             onClick={() => setSwitchWork(false)}
-            className={`work-icon ${!switchWork && "work-icon-active"}`}
+            className={`work-icon ${!switchWork && 'work-icon-active'}`}
           />
         </div>
 
@@ -44,9 +50,8 @@ function Work() {
               url="https://venu-frontend.onrender.com/"
               repo="https://github.com/Final-Countdown-Team/Venu-Frontend"
             >
-              VENU is an app to help connect venues and musicians. This project was
-              the final project during the web-development bootcamp at DCI. It uses
-              the MERN-Stack.
+              VENU is an app to help connect venues and musicians. This project was the final
+              project during the web-development bootcamp at DCI. It uses the MERN-Stack.
             </Card>
             <Card
               img={previewMeme}
@@ -54,8 +59,8 @@ function Work() {
               url="https://never-gonna-gif-you-up.netlify.app"
               repo="https://github.com/druckmax/never-gonna-GIF-you-up"
             >
-              Find your favorite GIFs or create your own memes. Built with React and
-              Sass, using the Giphy and imgur APIs.
+              Find your favorite GIFs or create your own memes. Built with React and Sass, using the
+              Giphy and imgur APIs.
             </Card>
             <Card
               img={previewCantina}
@@ -63,8 +68,8 @@ function Work() {
               url="https://github.com/druckmax/La_Cantina_2.0"
               repo="https://github.com/druckmax/La_Cantina_2.0"
             >
-              A static restaurant page built for La Cantina, a Tapas Bar in Leipzig.
-              Work in progress. <br />
+              A static restaurant page built for La Cantina, a Tapas Bar in Leipzig. Work in
+              progress. <br />
             </Card>
             <Card
               img={previewGithub}
@@ -72,8 +77,8 @@ function Work() {
               url="https://react-github-finder-app-druckmax.netlify.app"
               repo="https://github.com/druckmax/React_Github_Finder"
             >
-              A github finder application, using the Github API. Searchs for users
-              and displays the profile. Built with React and Tailwind.
+              A github finder application, using the Github API. Searchs for users and displays the
+              profile. Built with React and Tailwind.
             </Card>
           </div>
         ) : (
@@ -90,41 +95,33 @@ function Work() {
               title="React Chronometer"
               url="https://codepen.io/druckmax/pen/xxWarPr"
             >
-              Accurate stop watch made in React. Uses Date.now() to calculate
-              intervals to avoid drifting behaviour caused by the Javascript engine.
+              Accurate stop watch made in React. Uses Date.now() to calculate intervals to avoid
+              drifting behaviour caused by the Javascript engine.
             </Card>
             <Card
               img={colorGenerator}
               title="Random Color Generator"
               url="https://codepen.io/druckmax/pen/RwMrMQJ"
             >
-              A small app that creates a random color hex-code and sets the color as
-              background for the card-item.
+              A small app that creates a random color hex-code and sets the color as background for
+              the card-item.
             </Card>
             <Card
               img={vacationCountdown}
               title="Vacation Countdown"
               url="https://codepen.io/druckmax/pen/poLENqp"
             >
-              A countdown component which shows you how long you have to wait for
-              your well deserved vacation.
+              A countdown component which shows you how long you have to wait for your well deserved
+              vacation.
             </Card>
           </div>
         )}
 
         <div className="arrow-container">
-          <AiOutlineLeft
-            className="arrow"
-            onClick={() => setSwitchWork(!switchWork)}
-          />
-          <AiOutlineRight
-            className="arrow"
-            onClick={() => setSwitchWork(!switchWork)}
-          />
+          <AiOutlineLeft className="arrow" onClick={() => setSwitchWork(!switchWork)} />
+          <AiOutlineRight className="arrow" onClick={() => setSwitchWork(!switchWork)} />
         </div>
       </div>
     </div>
   );
 }
-
-export default Work;

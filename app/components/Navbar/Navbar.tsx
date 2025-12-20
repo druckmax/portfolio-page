@@ -1,13 +1,18 @@
-import React from "react";
-import logoWhite from "./img/logoWhite.png";
-import "./_Navbar.scss";
+'use client';
 
-import { useContext,  } from "react";
-import { MainContext } from "../../Context";
+import React, { useContext } from 'react';
+import logoWhite from './img/logoWhite.png';
+import './_Navbar.scss';
+import { MainContext } from '@/app/context/Context';
+import { BsFillMoonFill } from 'react-icons/bs';
 
-import { /* BsFillSunFill, */ BsFillMoonFill } from "react-icons/bs";
+export default function Navbar() {
+  const context = useContext(MainContext);
 
-function Navbar() {
+  if (!context) {
+    return null;
+  }
+
   const {
     heroRef,
     workRef,
@@ -17,14 +22,14 @@ function Navbar() {
     scrollHandler,
     hamburgerHandler,
     hamburgerToggle,
-  } = useContext(MainContext);
+  } = context;
 
   return (
     <nav className="navbar">
       <div className="nav-logo-container">
         <img
           className="nav-logo-name"
-          src={logoWhite}
+          src={logoWhite.src}
           alt="cursive font of the name as a logo"
         />
       </div>
@@ -41,7 +46,7 @@ function Navbar() {
           <div></div>
           <div></div>
         </div>
-        <div className={`toggle-menu ${showHamburger && "show-toggle-menu"}`}>
+        <div className={`toggle-menu ${showHamburger && 'show-toggle-menu'}`}>
           <ul className="toggle-menu-content">
             <li onClick={() => scrollHandler(heroRef)}>Home</li>
             <li onClick={() => scrollHandler(workRef)}>Work</li>
@@ -63,5 +68,3 @@ function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;

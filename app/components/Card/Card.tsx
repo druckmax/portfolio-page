@@ -1,18 +1,28 @@
-import React from "react";
-import "./_Card.scss";
+'use client';
 
-function Card({ img, title, children, url, repo }) {
+import React, { ReactNode } from 'react';
+import './_Card.scss';
+
+interface CardProps {
+  img: { src: string };
+  title: string;
+  children: ReactNode;
+  url: string;
+  repo?: string;
+}
+
+export default function Card({ img, title, children, url, repo }: CardProps) {
   return (
     <div className="card-container">
       <div className="img-wrapper">
         <a href={url} target="_blank" rel="noreferrer">
-          <img src={img} alt="preview of respective project" />
+          <img src={img.src} alt="preview of respective project" />
         </a>
       </div>
       <div className="card-description">
         <h3>{title}</h3>
         <p>
-          {children}{" "}
+          {children}{' '}
           {repo && (
             <a href={repo} target="_blank" rel="noreferrer">
               Link to repository
@@ -23,5 +33,3 @@ function Card({ img, title, children, url, repo }) {
     </div>
   );
 }
-
-export default Card;
