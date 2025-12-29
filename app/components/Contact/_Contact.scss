@@ -5,6 +5,7 @@
   margin: auto;
   position: relative;
   filter: $drop-shadow-white-20-invert;
+  z-index: 1;
 
   @include respond(desktop-lg) {
     filter: $drop-shadow-white-40-invert;
@@ -32,12 +33,15 @@
       from {
         transform: rotate(0deg);
       }
+
       25% {
         transform: rotate(-15deg);
       }
-      75%{
+
+      75% {
         transform: rotate(15deg);
       }
+
       to {
         transform: rotate(0deg);
       }

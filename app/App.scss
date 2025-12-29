@@ -1,20 +1,36 @@
 @use './Utilities' as *;
 
+:root {
+  --flip-opacity: 0;
+}
+
 .wrapper {
   background-color: $bg-color-black;
   color: $text-color-light;
   overflow: hidden;
 
-  &::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    left: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: fixed; // cover viewport
     top: 0;
-    position: absolute;
-    position: fixed;
-    background: url(/img/bg-dark-edit-02.jpg) no-repeat center center/cover;
-    // filter: invert(1);
-    opacity: 0.4;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+    background: url(/img/bg_top.png) no-repeat center center/cover;
+  }
+
+  &::before {
+    transform: scaleX(1);
+    opacity: calc(1 - var(--flip-opacity));
+  }
+
+  &::after {
+    transform: scaleX(-1);
+    filter: hue-rotate(-20deg);
+    opacity: var(--flip-opacity, 0);
   }
 }

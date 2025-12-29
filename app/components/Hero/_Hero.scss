@@ -5,93 +5,89 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap-reverse;
-  width: 90%;
-  margin: 3rem auto;
+  padding: 3rem;
   position: relative;
-  // min-height: 70vh;
-  // border: 1px solid green;
+  max-width: 70rem;
+  margin: auto;
+  height: calc(100dvh - 25rem);
+  max-height: 75rem;
 
   @include respond(desktop-lg) {
     flex-wrap: nowrap;
     width: 90%;
-    min-height: 55vh;
     max-width: 125rem;
-    margin: 6rem auto 0 auto;
   }
 
   .hero-portrait {
     width: 60%;
     max-width: 45rem;
     min-width: 25rem;
-    margin: auto;
+    mix-blend-mode: hard-light;
+    opacity: 70%;
+    transform: translateY(15%);
 
     @include respond(desktop-lg) {
-      max-width: 55rem;
+      max-width: 60rem;
       position: absolute;
-      right: 0;
+      right: 2rem;
+      bottom: -8rem;
       z-index: 5;
-      transform: translateY(5rem);
+      transform: translateY(25%) rotate(-8deg);
+      z-index: 1;
     }
   }
 
   &--text {
+    position: relative;
+    z-index: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: -10vw;
-    z-index: 10;
 
     @include respond(desktop-lg) {
-      margin: 0;
+      // margin: 0;
+      margin-top: 12.5%;
     }
 
     h1 {
       font-family: $font-heading;
-      text-align: center;
+      text-align: left;
       font-weight: 700;
       letter-spacing: clamp(1px, 10vw, 5px);
-      font-size: clamp(4rem, 10vw, 10rem);
-      margin-bottom: 2rem;
+      font-size: clamp(2rem, 10vw, 6rem);
 
       @include respond(desktop-lg) {
         text-align: left;
+      }
+
+      span {
+        background: linear-gradient(90deg, $btn-color-secondary, $btn-color-primary);
+        /* or use to right */
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
 
     .sub-heading {
       align-self: center;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(1rem, 5vw, 2.5rem);
       display: flex;
-      max-width: 80rem;
-      padding-left: 5vmax;
-      padding-right: 2rem;
+      width: 100%;
+      max-width: 50rem;
       flex-direction: column;
       justify-content: space-evenly;
 
       @include respond(desktop-lg) {
         width: 50%;
         align-self: flex-start;
-        margin-left: 10rem;
+      }
+
+      p {
+        margin-bottom: 4rem;
       }
     }
 
-    .hero-btn {
-      margin-top: 4rem;
-
-      &:hover {
-        box-shadow:
-          0 0 0 2rem rgba(255, 255, 255, 0.05),
-          0 0 0 4rem rgba(150, 150, 150, 0.1),
-          0 0 0 6rem rgba(94, 94, 94, 0.1);
-      }
-
-      &:active {
-        box-shadow:
-          0 0 0 1rem rgba(255, 255, 255, 0.1),
-          0 0 0 2rem rgba(150, 150, 150, 0.2),
-          0 0 0 3rem rgba(94, 94, 94, 0.2);
-      }
-    }
   }
 
 

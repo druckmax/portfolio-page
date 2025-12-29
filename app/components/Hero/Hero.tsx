@@ -1,22 +1,26 @@
 import { getTranslations } from '../i18n/getTranslations';
+import { CTA } from '../shared/CTA/CTA';
 import './_Hero.scss';
-import test_avatar from './img/avatar_bg_edit_01_transparent_small_0.5.png';
+import space_avatar from './img/space_avatar.png';
 
 export default function Hero() {
   const t = getTranslations();
   return (
     <div id="hero" className="hero-container">
       <div className="hero-container--text">
-        <h1>{t('hero.headline')}</h1>
+        <h1>
+          {t('hero.headline')}
+          <span>&nbsp;{t('hero.headlineName')}</span>
+        </h1>
         <div className="sub-heading">
           <p>{t('hero.subHeadline')}</p>
-          <a href="#contact" className="btn hero-btn">
-            {t('hero.cta')}
-          </a>
+          <CTA className="hero-btn">
+            <a href="#contact">{t('hero.cta')}</a>
+          </CTA>
         </div>
       </div>
 
-      <img className="hero-portrait" src={test_avatar.src} alt="Comic portrait of me" />
+      <img className="hero-portrait" src={space_avatar.src} alt="Comic portrait of me" />
     </div>
   );
 }

@@ -1,34 +1,44 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import type { CSSProperties } from 'react';
+import type { Project } from '../Work/Work';
 import './_Card.scss';
+import { BsGithub, BsGlobe } from 'react-icons/bs';
 
 interface CardProps {
-  img: { src: string };
-  title: string;
-  children: ReactNode;
-  url: string;
-  repo?: string;
+  project: Project;
 }
 
-export default function Card({ img, title, children, url, repo }: CardProps) {
+export default function Card({ project }: CardProps) {
+  const { img, color, title, year, description, repo, url, techStack } = project;
   return (
-    <div className="card-container">
+    <div className="card-container" style={{ '--project-color': color } as CSSProperties}>
       <div className="img-wrapper">
-        <a href={url} target="_blank" rel="noreferrer">
-          <img src={img.src} alt="preview of respective project" />
-        </a>
+        <img src={img.src} alt="preview of respective project" />
+        {/* <a href={url} target="_blank" rel="noreferrer"> */}
+        {/* </a> */}
       </div>
       <div className="card-description">
-        <h3>{title}</h3>
-        <p>
-          {children}{' '}
-          {repo && (
-            <a href={repo} target="_blank" rel="noreferrer">
-              Link to repository
-            </a>
-          )}
-        </p>
+        <h3>
+          {title}
+          <span> - {year}</span>
+        </h3>
+        <p>{description}</p>
+      </div>
+      <div className="card-tech">
+        {techStack.map((tech) => (
+          <span key={title + tech}>{tech}</span>
+        ))}
+      </div>
+      <div className="card-links">
+        <a href={url} target="_blank" rel="noreferrer">
+          <BsGlobe />
+          Live
+        </a>
+        <a href={repo} target="_blank" rel="noreferrer">
+          <BsGithub />
+          Github
+        </a>
       </div>
     </div>
   );

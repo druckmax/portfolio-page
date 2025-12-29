@@ -5,6 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import './_Contact.scss';
 
 import { getTranslations } from '../i18n/getTranslations';
+import { CTA } from '../shared/CTA/CTA';
 import bell from './img/bell-white.png';
 
 interface FormValues {
@@ -117,9 +118,9 @@ export default function Contact() {
                 placeholder={t('contact.message.placeholder')}
               />
             </div>
-            <button className="btn btn-contact" type="submit">
+            <CTA className="btn-contact" type="submit">
               {t('contact.cta')}
-            </button>
+            </CTA>
           </form>
         </div>
       </div>

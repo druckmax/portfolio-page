@@ -26,6 +26,7 @@
     display: none;
     list-style-type: none;
     font-size: 2rem;
+    font-weight: 500;
 
     @include respond(desktop-lg) {
       display: flex;
@@ -166,10 +167,9 @@
 
 li {
   font-family: $font-heading;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: inherit;
   text-decoration: none;
-  cursor: pointer;
 
   &:hover {
     color: $btn-color-primary;
@@ -181,10 +181,6 @@ li {
   cursor: pointer;
 
   &:hover {
-    color: $btn-color-primary-blue;
-  }
-
-  &:active {
-    color: color.adjust($btn-color-primary, $lightness: -20%);
+    fill: $btn-color-primary;
   }
 }

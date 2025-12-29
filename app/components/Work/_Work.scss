@@ -1,20 +1,15 @@
 @use '../../Utilities' as *;
 
 .work-container {
-  // border: 1px solid #008000;
   position: relative;
+  z-index: 2;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 2;
   filter: $drop-shadow-white-20 $drop-shadow-white-20-invert;
 
-  @include respond(desktop-lg) {
-    filter: $drop-shadow-white-40 $drop-shadow-white-40-invert;
-
-  }
 
   .content-container {
     background-color: $bg-color-dark-grey;
@@ -25,7 +20,6 @@
     @include respond(desktop-lg) {
       clip-path: polygon(0 $polygon-big-low, 100% 0, 100% 100%, 0 $polygon-big-high);
       padding: 30rem 0;
-      transform: translateY(-3rem);
     }
   }
 
@@ -39,32 +33,18 @@
     position: relative;
     z-index: 2;
 
-    .work-icon {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      cursor: pointer;
-      transition: all .2s;
-      border-radius: 50%;
-    }
-
-    .work-icon-active {
-      outline: 1px dashed #fff;
-      outline-offset: 1rem;
-      border-radius: 50%;
-      color: $btn-color-primary;
-    }
-
     h2 {
-      font-family: $font-heading;
       font-size: $font-size-section-heading;
-      text-transform: uppercase;
+      text-transform: lowercase;
       padding: 2rem;
       font-weight: 500;
+      color: transparent;
+      background: linear-gradient(to right, $color-primary, #111);
+      background-clip: text;
     }
   }
 
   .github-container {
-    // border: 1px solid red;
-    width: 90%;
     max-width: 100rem;
     margin: auto;
     position: relative;
@@ -72,23 +52,6 @@
     flex-wrap: wrap;
     gap: 6rem;
     padding-bottom: 4rem;
-
   }
 
-  .arrow-container {
-    width: 95%;
-    max-width: 125rem;
-    font-size: 3rem;
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-
-    .arrow {
-      cursor: pointer;
-    }
-  }
 }

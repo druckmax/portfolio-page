@@ -9,7 +9,7 @@ import logoWhite from './img/logoWhite.png';
 export default function Navbar() {
   const [showHamburger, setShowHamburger] = useState(false);
   const hamburgerToggle = useRef<HTMLInputElement | null>(null);
-  const t = getTranslations()
+  const t = getTranslations();
 
   const hamburgerHandler = () => {
     if (showHamburger) {
@@ -52,16 +52,16 @@ export default function Navbar() {
         <div className={`toggle-menu ${showHamburger && 'show-toggle-menu'}`}>
           <ul className="toggle-menu-content">
             <li>
-              <a href="#hero">{t("nav.home")}</a>
+              <a href="#hero">{t('nav.home')}</a>
             </li>
             <li>
-              <a href="#projects">{t("nav.projects")}</a>
+              <a href="#projects">{t('nav.projects')}</a>
             </li>
             <li>
-              <a href="#about">{t("nav.about")}</a>
+              <a href="#about">{t('nav.about')}</a>
             </li>
             <li>
-              <a href="contact">{t("nav.contact")}</a>
+              <a href="contact">{t('nav.contact')}</a>
             </li>
             <li>
               <BsFillMoonFill className="nav-dark-light-toggle" />
@@ -71,18 +71,17 @@ export default function Navbar() {
       </div>
       <ul className="flex-navigation">
         <li>
-          <a href="#hero">{t("nav.home")}</a>
+          <a href="#hero">{t('nav.home')}</a>
         </li>
         <li>
-          <a href="#projects">{t("nav.projects")}</a>
+          <a href="#projects">{t('nav.projects')}</a>
         </li>
         <li>
-          <a href="#about">{t("nav.about")}</a>
+          <a href="#about">{t('nav.about')}</a>
         </li>
         <li>
-          <a href="contact">{t("nav.contact")}</a>
+          <a href="contact">{t('nav.contact')}</a>
         </li>
-        <BsFillMoonFill className="nav-dark-light-toggle" />
       </ul>
     </nav>
   );

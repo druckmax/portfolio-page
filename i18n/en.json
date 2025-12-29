@@ -6,9 +6,13 @@
     "contact": "Contact"
   },
   "hero": {
-    "headline": "Hey I'm Max...",
-    "subHeadline": "I'm a Junior Web Developer and Designer based in Leipzig.",
-    "cta": "Contact me"
+    "headline": "Hey I'm",
+    "headlineName": "Max",
+    "subHeadline": "I’m a fullstack developer and I like to build things for the web",
+    "cta": "get in touch"
+  },
+  "projects": {
+    "headline": "Projects"
   },
   "about": {
     "headline": "About",
