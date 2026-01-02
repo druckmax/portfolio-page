@@ -3,22 +3,24 @@
 import { getTranslations } from '../i18n/getTranslations';
 import './_About.scss';
 
-import css from './img/css.png';
-import html from './img/html.png';
-import javascript from './img/javascript.png';
+import nextjs from './img/nextjs.png';
+import react from './img/react.png';
+import typescript from './img/typescript.png';
+import tailwind from './img/tailwind.png';
+import sass from './img/sass.png';
+import prisma from './img/prisma.png';
 import mongodb from './img/mongodb.png';
 import nodejs from './img/nodejs.png';
-import react from './img/react.png';
-import sass from './img/sass.png';
 
 const iconMap = [
-  { src: html.src, alt: 'html icon' },
-  { src: css.src, alt: 'css icon' },
-  { src: sass.src, alt: 'sass icon' },
-  { src: javascript.src, alt: 'javascript icon' },
+  { src: nextjs.src, alt: 'Nextjs icon' },
   { src: react.src, alt: 'react icon' },
-  { src: nodejs.src, alt: 'nodejs icon' },
+  { src: typescript.src, alt: 'typescript icon' },
+  { src: tailwind.src, alt: 'tailwind icon' },
+  { src: sass.src, alt: 'sass icon' },
+  { src: prisma.src, alt: 'prisma icon' },
   { src: mongodb.src, alt: 'mongodb icon' },
+  { src: nodejs.src, alt: 'nodejs icon' },
 ];
 
 export default function About() {
@@ -28,26 +30,26 @@ export default function About() {
       <div className="about-container">
         <div className="about-content">
           <h2>{t('about.headline')}</h2>
-          <p className="general">{t('about.general')}</p>
-          <div className="about-section technical">
-            <h3>{t('about.headlineTech')}</h3>
-            <p>{t('about.tech')}</p>
+          <h3>{t('about.headlineGeneral')}</h3>
+          <div className="general">
+            <p>{t('about.general')}</p>
+            <p>{t('about.generalWork')}</p>
+            <p>{t('about.generalMisc')}</p>
           </div>
-          <div className="technologies-icons">
-            {iconMap.map((icon) => {
-              return <img key={icon.src} src={icon.src} alt={icon.alt} />;
-            })}
-            <img src={html.src} alt="html icon" />
-            <img src={css.src} alt="css icon" />
-            <img src={sass.src} alt="sass icon" />
-            <img src={javascript.src} alt="javascript icon" />
-            <img src={react.src} alt="react icon" />
-            <img src={nodejs.src} alt="nodejs icon" />
-            <img src={mongodb.src} alt="mongodb icon" />
-          </div>
-          <div className="about-section personal">
-            <h3>{t('about.headlinePersonal')}</h3>
-            <p>{t('about.personal')}</p>
+          <div className="about-section">
+            <div className="techStack">
+              <h3>{t('about.headlineTech')}</h3>
+              <p>{t('about.tech')}</p>
+            </div>
+            <div className="techStack-icons">
+              {iconMap.map((icon) => {
+                return (
+                  <div key={icon.src}>
+                    <img width={50} src={icon.src} alt={icon.alt} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

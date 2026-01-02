@@ -10,6 +10,7 @@
   max-width: 70rem;
   margin: auto;
   height: calc(100dvh - 25rem);
+  min-height: 55rem;
   max-height: 75rem;
 
   @include respond(desktop-lg) {
@@ -45,7 +46,6 @@
     flex-direction: column;
 
     @include respond(desktop-lg) {
-      // margin: 0;
       margin-top: 12.5%;
     }
 
@@ -62,7 +62,6 @@
 
       span {
         background: linear-gradient(90deg, $btn-color-secondary, $btn-color-primary);
-        /* or use to right */
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

@@ -1,27 +1,27 @@
 @use '../../Utilities' as *;
 
 .about-container {
-  width: 80%;
-  max-width: 55rem;
+  width: 90%;
+  max-width: 58rem;
   margin: auto;
   position: relative;
   line-height: 2;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 
   &::before {
     content: '';
-    width: 100%;
+    width: 90%;
     height: 150%;
-    left: 100%;
+    left: 87%;
     position: absolute;
     background-color: $bg-color-black;
     transform: scale(2) rotate(20deg) translateX(-50%);
     clip-path: polygon(0 10%, 100% 17%, 100% 80%, 0% 100%);
     z-index: 1;
-    opacity: .5;
+    opacity: .8;
     display: none;
 
-    @include respond(desktop-lg) {
+    @include respond(medium) {
       display: block;
     }
   }
@@ -31,7 +31,7 @@
     z-index: 1;
 
     @include respond(desktop-lg) {
-      top: -3rem;
+      top: -6rem;
 
     }
 
@@ -44,28 +44,74 @@
       background-clip: text;
       width: fit-content;
       padding-right: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 100;
+      background: linear-gradient(to right, #efefef, #111);
+      background-clip: text;
+      color: transparent;
+      width: fit-content;
+      padding-right: 5rem;
+      margin-bottom: 0.5rem;
+
     }
 
     .general {
-      font-weight: 400;
-    }
+      display: flex;
+      flex-direction: column;
+      font-weight: normal;
+      gap: 2.5rem;
+      font-weight: 200;
 
-    .about-section {
-      margin: 3rem 0;
-
-      p {
-        font-weight: 300;
+      p:first-child {
+        font-weight: 400;
       }
     }
 
-    .technologies-icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 5rem;
+    .about-section {
+      margin-top: 5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+      gap: 2rem;
+      border: 1px solid yellowgreen;
+    }
+
+    .techStack {
+      min-width: 0;
+      font-weight: 300;
+      border: 1px solid red;
+
+    }
+
+    .techStack-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      place-items: center;
+      border: 1px solid white;
+      // width: 100%;
+      // max-width: 30rem;
+      // margin: auto;
+      gap: 4rem;
+
+      div {
+        aspect-ratio: 1;
+        width: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1f1f1f;
+        border-radius: 8px;
+
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+          padding: 1rem;
+        }
+      }
     }
   }
-
-
 }

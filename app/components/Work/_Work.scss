@@ -12,6 +12,8 @@
 
 
   .content-container {
+    position: relative;
+    z-index: 1;
     background-color: $bg-color-dark-grey;
     clip-path: polygon(0 $polygon-small-low, 100% 0, 100% 100%, 0 $polygon-small-high);
     padding: 15rem 0 20rem 0;

@@ -16,11 +16,12 @@
   },
   "about": {
     "headline": "About",
-    "general": "I enjoy giving 100% to create appealing designs and translate them to be fully responsive and to look amazing on every device. I always seek new challenges and never stop learning and improving my skills.",
-    "headlineTech": "Technical",
-    "tech": "I feel most comfortable being around HTML, CSS, Sass and Javascript. Currently I am learning React.js and looking forward to extend my skills towards the backend (dark) side. For that I&apos;ve got Node.js, Express.js and MongoDB on my list, to eventually build a complete MERN stack.",
-    "headlinePersonal": "Personal",
-    "personal": "I grew up in a small town near Frankfurt am Main, and moved to Leipzig in 2015. I studied Sound and Music Production in Darmstadt and call myself an ambitious amateur boulderer/climber."
+    "headlineGeneral": "The Journey",
+    "general": "I’m a frontend-focused Software Engineer who enjoys crafting clean, functional web experiences. I mostly work on the frontend, but I’m comfortable moving across the stack when needed. I also like to design things in Figma every now and then.",
+    "generalWork": "I’m currently working at Spreadgroup as a Software Engineer, a custom apparel e-commerce company based in Leipzig, Germany. Currently we are focusing on moving our legacy CMS to Amplience, and rebuilding the checkout system with Commercetools.",
+    "generalMisc": "Based in Leipzig, I grew up near Frankfurt am Main and studied Sound and  Music Production in Darmstadt. When I'm not coding, you'll find me climbing walls in the gym or outside in Kalymnos, Greece.",
+    "headlineTech": "Tech Stack",
+    "tech": "I work with modern web technologies across the stack, with a strong focus on React-based frontends and Node.js backends. Lately, I’ve been building primarily with Next.js, TypeScript, and Tailwind CSS. I occasionally work with Redis for caching and operate within Kubernetes-based production environments."
   },
   "contact": {
     "headline": "Contact",

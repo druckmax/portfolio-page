@@ -3,14 +3,14 @@
 // Dark Theme
 $text-color-dark: #222;
 
-$bg-color-black: #090909;
-$bg-color-dark-grey: #0f0f0f;
+$bg-color-black: #111;
+$bg-color-dark-grey: #111;
 $bg-color-grey: #1a1a1a;
 
-$drop-shadow-color-white: rgba(255, 255, 255, 0.082);
+$drop-shadow-color-white: rgba(255, 255, 255, 0.2);
 
-$drop-shadow-white-20: drop-shadow(0 20px 0px $drop-shadow-color-white);
-$drop-shadow-white-20-invert: drop-shadow(0 -20px 0px $drop-shadow-color-white);
+$drop-shadow-white-20: drop-shadow(0 15px 0px $drop-shadow-color-white);
+$drop-shadow-white-20-invert: drop-shadow(0 -15px 0px $drop-shadow-color-white);
 
 $drop-shadow-white-40: drop-shadow(0 50px 1px $drop-shadow-color-white);
 $drop-shadow-white-40-invert: drop-shadow(0 -50px 1px $drop-shadow-color-white);
@@ -118,7 +118,7 @@ $polygon-big-high: 80%;
   }
 
   @if $breakpoint ==desktop-lg {
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1140px) {
       @content;
     }
   }
