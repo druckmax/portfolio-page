@@ -8,7 +8,12 @@ import { useState } from 'react';
 export default function Navbar() {
   return (
     <nav id="home" className="navbar">
-      <img className="nav-logo" src={logoWhite.src} alt="cursive font of the name as a logo" />
+      <img
+        className="nav-logo"
+        src={logoWhite.src}
+        alt="cursive font of the name as a logo"
+        loading="eager"
+      />
       <MobileNav />
       <NavItems className="flex-navigation" />
     </nav>

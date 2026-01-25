@@ -45,7 +45,7 @@ export default function About() {
               {iconMap.map((icon) => {
                 return (
                   <div key={icon.src}>
-                    <img width={50} src={icon.src} alt={icon.alt} />
+                    <img width={50} src={icon.src} alt={icon.alt} loading="lazy" />
                   </div>
                 );
               })}

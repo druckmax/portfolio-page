@@ -14,7 +14,7 @@ export default function Card({ project }: CardProps) {
   return (
     <div className="card-container" style={{ '--project-color': color } as CSSProperties}>
       <div className="img-wrapper">
-        <img src={img.src} alt="preview of respective project" />
+        <img src={img.src} alt="preview of respective project" loading="lazy" />
       </div>
       <div className="card-description">
         <h3>

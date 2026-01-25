@@ -1,7 +1,7 @@
 import { getTranslations } from '../i18n/getTranslations';
 import { CTA } from '../shared/CTA/CTA';
 import './_Hero.scss';
-import space_avatar from './img/space_avatar.png';
+import space_avatar from './img/space_avatar.webp';
 
 export default function Hero() {
   const t = getTranslations();
@@ -20,7 +20,12 @@ export default function Hero() {
         </div>
       </div>
 
-      <img className="hero-portrait" src={space_avatar.src} alt="Comic portrait of me" />
+      <img
+        className="hero-portrait"
+        src={space_avatar.src}
+        alt="Comic portrait of me"
+        loading="eager"
+      />
     </div>
   );
 }

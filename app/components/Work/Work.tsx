@@ -3,9 +3,9 @@
 import Card from '../Card/Card';
 import { getTranslations } from '../i18n/getTranslations';
 import './_Work.scss';
-import commander from './img/commander.png';
-import venu from './img/preview-venu.png';
-import woerterwald from './img/woerterwald.png';
+import commander from './img/commander.webp';
+import venu from './img/preview-venu.webp';
+import woerterwald from './img/woerterwald.webp';
 
 const projects = [
   {

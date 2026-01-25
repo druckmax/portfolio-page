@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
           <div className="withLove">
             Made with
-            <img src={gradientHeart.src} alt="Gradient Heart" height={12} />
+            <img src={gradientHeart.src} alt="Gradient Heart" height={12} loading="lazy" />
             in Leipzig
           </div>
           <div className="copyright">
