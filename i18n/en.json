@@ -24,7 +24,7 @@
     "tech": "I work with modern web technologies across the stack, with a strong focus on React-based frontends and Node.js backends. Lately, I’ve been building primarily with Next.js, TypeScript, and Tailwind CSS. I occasionally work with Redis for caching and operate within Kubernetes-based production environments."
   },
   "contact": {
-    "headline": "Contact",
+    "headline": "let's connect",
     "name": {
       "label": "Name:",
       "placeholder": "Your name"
@@ -38,5 +38,9 @@
       "placeholder": "Write me a message :)"
     },
     "cta": "Contact me"
+  },
+  "footer": {
+    "backToTop": "Back to top",
+    "author": "Max Sommerfeld"
   }
 }

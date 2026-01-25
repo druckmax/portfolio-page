@@ -8,13 +8,13 @@
   z-index: 1;
 
   @include respond(desktop-lg) {
-    filter: $drop-shadow-white-40-invert;
+    filter: $drop-shadow-white-20-invert;
   }
 
   .content-container {
-    background-color: $bg-color-dark-grey;
+    background-color: $bg-color-black;
     clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 100%);
-    padding: 5rem 0;
+    padding: 5rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,36 +28,12 @@
 
   .contact-heading {
     text-align: center;
-
-    @keyframes bellRinging {
-      from {
-        transform: rotate(0deg);
-      }
-
-      25% {
-        transform: rotate(-15deg);
-      }
-
-      75% {
-        transform: rotate(15deg);
-      }
-
-      to {
-        transform: rotate(0deg);
-      }
-    }
-
-    img {
-      position: relative;
-      animation-duration: .3s;
-      animation-delay: .3s;
-      animation-iteration-count: 4;
-      animation-timing-function: ease-in-out;
-    }
+    background: linear-gradient(to right, $color-secondary, $color-primary, transparent 110%);
+    color: transparent;
+    background-clip: text;
+    padding: 5rem 0 2.5rem 0;
 
     h2 {
-      font-family: $font-heading;
-      text-transform: uppercase;
       font-weight: 500;
       font-size: $font-size-section-heading;
     }
@@ -65,13 +41,23 @@
 
   form {
     position: relative;
-    width: 90%;
-    max-width: 50rem;
+    width: 100%;
+    max-width: 55rem;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .emailName {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      @include respond(small) {
+        flex-wrap: nowrap;
+      }
+    }
 
     .input-group {
       width: 100%;
@@ -86,14 +72,20 @@
       input,
       textarea {
         padding: 1rem;
-        border: none;
+        border: 1px solid #585858;
         border-radius: 4px;
         font-size: 1.6rem;
         font-family: $font-main;
+        background: #242424;
+        color: #fff;
 
         &:focus {
-          outline: 2px solid $btn-color-secondary;
+          outline: 2px solid $color-secondary;
           outline-offset: 2px;
+        }
+
+        &::placeholder {
+          opacity: 0.4;
         }
       }
 
@@ -107,6 +99,7 @@
 
   .btn-contact {
     margin: 3rem 0 0 0;
-    font-size: 2rem;
+    font-size: 1.75rem;
+
   }
 }

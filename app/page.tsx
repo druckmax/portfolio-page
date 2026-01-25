@@ -11,8 +11,8 @@ import BackgroundFlip from './components/BackgroundFlip';
 export default function Home() {
   return (
     <div className="wrapper">
-      <BackgroundFlip />
       <Navbar />
+      <BackgroundFlip />
       <Hero />
       <Work />
       <About />

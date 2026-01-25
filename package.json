@@ -10,6 +10,7 @@
     "lint": "biome check --write"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "next": "^15.2.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -22,6 +23,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "prettier": "^3.7.4",
-    "sass": "^1.97.0"
+    "sass": "^1.97.0",
+    "typescript": "5.9.3"
   }
 }

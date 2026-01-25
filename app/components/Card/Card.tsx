@@ -15,8 +15,6 @@ export default function Card({ project }: CardProps) {
     <div className="card-container" style={{ '--project-color': color } as CSSProperties}>
       <div className="img-wrapper">
         <img src={img.src} alt="preview of respective project" />
-        {/* <a href={url} target="_blank" rel="noreferrer"> */}
-        {/* </a> */}
       </div>
       <div className="card-description">
         <h3>
@@ -31,13 +29,20 @@ export default function Card({ project }: CardProps) {
         ))}
       </div>
       <div className="card-links">
-        <a href={url} target="_blank" rel="noreferrer">
-          <BsGlobe />
-          Live
-        </a>
+        {!url ? (
+          <span className="disabled">
+            <BsGlobe />
+            <span>Coming soon...</span>
+          </span>
+        ) : (
+          <a href={url} target="_blank" rel="noreferrer">
+            <BsGlobe />
+            <span>Live</span>
+          </a>
+        )}
         <a href={repo} target="_blank" rel="noreferrer">
           <BsGithub />
-          Github
+          <span>Github</span>
         </a>
       </div>
     </div>

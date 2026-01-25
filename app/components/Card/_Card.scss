@@ -10,7 +10,8 @@
   transition: all 0.4s ease-in-out;
   overflow: hidden;
 
-  &:hover .card-links {
+  &:hover .card-links,
+  &:focus-within .card-links {
     transform: translateY(0);
     opacity: 1;
   }
@@ -30,7 +31,7 @@
 
   .card-description {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -41,21 +42,17 @@
     padding: 1.5rem;
     line-height: 1.8;
     border-radius: 8px;
-    background: linear-gradient(to top, #111, transparent);
+    background: linear-gradient(to top, #111 33%, transparent);
 
-    h3 {
-      text-transform: lowercase;
-
-      span {
-        font-weight: 100;
-        font-size: 0.9em;
-      }
+    h3 span {
+      font-weight: 100;
+      font-size: 0.9em;
     }
 
     a {
       text-decoration: none;
       font-weight: 700;
-      color: $btn-color-secondary;
+      color: $color-secondary;
       text-align: right;
     }
   }
@@ -73,6 +70,8 @@
 
 
     span {
+      position: relative;
+      z-index: 4;
       width: fit-content;
       padding: 0.5rem 1rem;
       background-color: rgba(#181818, .8);
@@ -85,7 +84,7 @@
     position: absolute;
     inset: 0;
     top: -1px;
-    z-index: 2;
+    z-index: 4;
     width: 100%;
     height: calc(100% + 1px);
     font-size: 2rem;
@@ -99,15 +98,22 @@
     opacity: 0;
     transition: all 0.3s ease;
 
-    a {
+    :is(span, a) {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1rem;
       font-size: 2.5rem;
+      color: #ccc;
 
       &:hover {
-        text-shadow: 1px 0 0 #fff;
+        color: #fff;
+        text-shadow: 0 0 1px #fff;
+      }
+
+      &.disabled {
+        pointer-events: none;
+        opacity: .5;
       }
     }
   }

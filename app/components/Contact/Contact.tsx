@@ -1,18 +1,16 @@
 'use client';
 
-import { useActionState, useEffect, useState } from 'react';
+import { useActionState, useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import './_Contact.scss';
 
 import { getTranslations } from '../i18n/getTranslations';
 import { CTA } from '../shared/CTA/CTA';
-import bell from './img/bell-white.png';
 import { type FormState, submitForm } from './actions/submitForm';
 
 export default function Contact() {
   const t = getTranslations();
   const [state, action] = useActionState(submitForm, 'initial' as FormState);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
     switch (state) {
@@ -21,7 +19,6 @@ export default function Contact() {
         break;
       case 'success':
         toast.success('Thanks for your submit');
-        setSubmitSuccess(true);
         break;
       default:
         return;
@@ -34,37 +31,34 @@ export default function Contact() {
       <div id="contact" className="contact-container">
         <div className="content-container">
           <div className="contact-heading">
-            <img
-              src={bell.src}
-              alt="bell icon"
-              style={{ animationName: submitSuccess ? 'bellRinging' : undefined }}
-            />
             <h2>{t('contact.headline')}</h2>
           </div>
           <form action={action} name="contact" method="POST">
             <input type="hidden" name="form-name" value="Contact request from Portfolio" />
-            <div className="input-group">
-              <label htmlFor="name">{t('contact.name.label')}</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                minLength={2}
-                maxLength={50}
-                required
-                placeholder={t('contact.name.placeholder')}
-              />
-            </div>
-            <div className="input-group">
-              <label htmlFor="email">{t('contact.email.label')}</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                maxLength={50}
-                required
-                placeholder={t('contact.email.placeholder')}
-              />
+            <div className="emailName">
+              <div className="input-group">
+                <label htmlFor="name">{t('contact.name.label')}</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  minLength={2}
+                  maxLength={50}
+                  required
+                  placeholder={t('contact.name.placeholder')}
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="email">{t('contact.email.label')}</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  maxLength={50}
+                  required
+                  placeholder={t('contact.email.placeholder')}
+                />
+              </div>
             </div>
             <div className="input-group">
               <label htmlFor="message">{t('contact.message.label')}</label>

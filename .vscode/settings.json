@@ -2,6 +2,10 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "prettier.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },

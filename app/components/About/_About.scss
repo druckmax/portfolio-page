@@ -1,23 +1,20 @@
 @use '../../Utilities' as *;
 
-.about-container {
-  width: 90%;
+.about-background-wrapper {
+  position: relative;
   max-width: 58rem;
   margin: auto;
-  position: relative;
-  line-height: 2;
-  margin-bottom: 5rem;
 
   &::before {
     content: '';
-    width: 90%;
-    height: 150%;
-    left: 87%;
+    width: 175%;
+    height: 250%;
+    top: -50%;
+    left: 33%;
     position: absolute;
-    background-color: $bg-color-black;
-    transform: scale(2) rotate(20deg) translateX(-50%);
-    clip-path: polygon(0 10%, 100% 17%, 100% 80%, 0% 100%);
     z-index: 1;
+    background-color: $bg-color-black;
+    transform: rotate(20deg) translateX(-50%);
     opacity: .8;
     display: none;
 
@@ -25,14 +22,24 @@
       display: block;
     }
   }
+}
+
+.about-container {
+  position: relative;
+  line-height: 2;
+  margin-bottom: 5rem;
+  z-index: 100;
 
   .about-content {
     position: relative;
     z-index: 1;
+    padding: 2rem;
+    background: rgba($bg-color-black, .7);
+    margin-top: 2rem;
+    border-radius: 16px;
 
-    @include respond(desktop-lg) {
-      top: -6rem;
-
+    @include respond(medium) {
+      background: transparent;
     }
 
     h2 {
@@ -40,19 +47,16 @@
       text-transform: lowercase;
       font-weight: 500;
       color: transparent;
-      background: linear-gradient(to right, $color-secondary, #111);
+      background: linear-gradient(to right, $color-secondary, transparent 125%);
       background-clip: text;
       width: fit-content;
-      padding-right: 3rem;
       padding-bottom: 3rem;
     }
 
     h3 {
       font-size: 1.75rem;
       font-weight: 100;
-      background: linear-gradient(to right, #efefef, #111);
-      background-clip: text;
-      color: transparent;
+      color: #999;
       width: fit-content;
       padding-right: 5rem;
       margin-bottom: 0.5rem;
@@ -72,29 +76,32 @@
     }
 
     .about-section {
-      margin-top: 5rem;
+      margin: 5rem 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 2rem;
-      border: 1px solid yellowgreen;
+
+      @include respond(small) {
+        grid-template-columns: 2fr 1fr;
+      }
     }
 
     .techStack {
-      min-width: 0;
       font-weight: 300;
-      border: 1px solid red;
-
     }
 
     .techStack-icons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-      place-items: center;
-      border: 1px solid white;
-      // width: 100%;
-      // max-width: 30rem;
-      // margin: auto;
-      gap: 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      max-width: 35rem;
+      margin: auto;
+
+      @include respond(small) {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       div {
         aspect-ratio: 1;

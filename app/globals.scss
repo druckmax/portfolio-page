@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -21,7 +22,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
 
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   background-color: $bg-color-black;
   overflow-x: hidden;
@@ -34,4 +35,16 @@ code {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+*:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px $color-focus;
 }

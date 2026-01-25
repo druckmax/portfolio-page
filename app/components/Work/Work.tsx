@@ -3,41 +3,43 @@
 import Card from '../Card/Card';
 import { getTranslations } from '../i18n/getTranslations';
 import './_Work.scss';
+import commander from './img/commander.png';
 import venu from './img/preview-venu.png';
 import woerterwald from './img/woerterwald.png';
-import commander from './img/commander.png';
 
 const projects = [
   {
     title: 'Wörterwald',
     year: '2025',
     color: '#9EB895',
-    description: 'A Wortify clone, that creates a new game at midnight',
+    description:
+      'A Wortify clone in calm forest environment. Creates a new game at midnight everyday',
     img: woerterwald,
     url: '',
-    repo: '',
-    techStack: ['NextJs', 'MongoDB', 'CronJobs'],
+    repo: 'https://github.com/WoerterWald/woerter_wald',
+    techStack: ['NextJs', 'MongoDB', 'Mongoose', 'Github Actions'],
   },
   {
-    title: 'Translation Commander',
+    title: 'Ink Patrol',
     year: '2023',
     color: '#69629E',
-    description: 'Tool that lets users read, write, assign, review translations',
+    description:
+      'Tool that lets users read, write, assign, review translations, including a version control.',
     img: commander,
     url: '',
     repo: '',
-    techStack: ['NextJs', 'SQL', 'Prisma'],
+    techStack: ['NextJs', 'Prisma', 'PostgreSQL'],
   },
   {
     title: 'Venu',
     year: '2023',
     color: '#0168B5',
-    description: 'A platform that connects artists with venues',
-    translationKey: 'project_03',
+    description:
+      'A platform connecting artists with venues. Sign up as an artist to reach registered venues.',
     img: venu,
-    url: '',
-    repo: '',
-    techStack: ['React', 'MongoDB', 'Express'],
+    url: 'https://venu-frontend.onrender.com',
+    repo: 'https://github.com/Final-Countdown-Team/Venu-Frontend',
+    techStack: ['React', 'Express', 'MongoDB', 'Mongoose'],
   },
 ];
 
@@ -53,7 +55,7 @@ export default function Work() {
         </div>
         <div className="github-container">
           {projects.map((project) => {
-            return <Card key={project.url} project={project} />;
+            return <Card key={project.color + project.title} project={project} />;
           })}
         </div>
       </div>

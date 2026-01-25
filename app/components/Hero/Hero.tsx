@@ -14,7 +14,7 @@ export default function Hero() {
         </h1>
         <div className="sub-heading">
           <p>{t('hero.subHeadline')}</p>
-          <CTA className="hero-btn">
+          <CTA className="hero-btn" asChild>
             <a href="#contact">{t('hero.cta')}</a>
           </CTA>
         </div>

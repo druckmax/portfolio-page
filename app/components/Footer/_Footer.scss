@@ -7,54 +7,72 @@ footer {
   margin: auto;
   z-index: 100;
   font-size: 1.5rem;
-  background-color: $bg-color-dark-grey;
+  background-color: $bg-color-black;
+  padding-top: 10rem;
 
-  .footer-content {
-    width: 90%;
-    max-width: 125rem;
-    height: 10rem;
-    margin: auto;
+  .backToTop {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 1rem;
+    transition: all .5s;
+    width: fit-content;
+    margin: auto;
+    background: linear-gradient(to right, #fff 0% 50%, $color-primary 50%, $color-secondary 100%);
+    background-clip: text;
+    color: transparent;
+    background-size: 200%;
+    background-position: 0%;
 
-    div {
-      width: 33%;
-    }
+    &:hover {
+      background-position: 100%;
 
-    .scroll-to-top {
-      width: 33%;
-
-      .arrow-up {
-        text-transform: uppercase;
-        font-size: 4rem;
-        padding: .5rem;
-        border-radius: 50%;
-        background-color: #eee;
-        color: $text-color-dark;
-        cursor: pointer;
-        transition: all .1s;
-
-        &:hover {
-          transform: scale(1.1);
-          color: $btn-color-primary;
-        }
+      .arrowUp {
+        transform: scale(1.2);
       }
     }
 
-    div:last-child {
-      text-align: right;
+
+    .arrowUp {
+      color: #fff;
+      cursor: pointer;
+      transition: all .5s;
+    }
+  }
+
+  .footer-content {
+    font-size: 1.25rem;
+    color: #aaa;
+    max-width: 125rem;
+    margin: auto;
+    padding: 2.5rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .withLove {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1rem;
     }
 
-    .footer-icons {
+    .copyright {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: auto;
+    }
+
+
+    a {
       font-size: 2rem;
       display: flex;
-      justify-content: space-around;
       align-items: center;
 
       & *:hover {
         cursor: pointer;
-        color: $btn-color-primary;
+        color: $color-primary;
       }
     }
 

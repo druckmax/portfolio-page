@@ -11,19 +11,15 @@
   position: relative;
   z-index: 100;
 
-  .nav-logo-container {
-    width: 0;
-
-    .nav-logo-name {
-      max-width: 15rem;
-    }
+  .nav-logo {
+    max-width: 15rem;
   }
+
 
   .flex-navigation {
     width: 50%;
-    display: flex;
-    justify-content: space-between;
     display: none;
+    justify-content: space-between;
     list-style-type: none;
     font-size: 2rem;
     font-weight: 500;
@@ -31,37 +27,21 @@
     @include respond(desktop-lg) {
       display: flex;
     }
-
-    .nav-dark-light-toggle {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-
-      &:hover {
-        color: $btn-color-primary-blue;
-      }
-    }
   }
 
   .hamburger {
-    width: 1000%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-
     @include respond(desktop-lg) {
       display: none;
     }
 
     .hamburger-content {
-      height: 100%;
+      width: fit-content;
       position: relative;
+      z-index: 100;
 
-      div {
+      .bar {
+        display: block;
         background-color: #fff;
-        position: relative;
         border-radius: 5px;
         width: 4rem;
         height: 4px;
@@ -77,52 +57,52 @@
           top: 0;
         }
       }
+    }
 
-      #hamburgerToggle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(4);
-        opacity: 0;
-        cursor: pointer;
-        z-index: 10000;
-
-        @include respond(desktop-lg) {
-          display: none;
-        }
-      }
-
-      #hamburgerToggle:checked~div {
+    &:has(div[data-state='open']) {
+      .bar:first-child {
         transform: rotate(45deg) translate(1rem, 1rem);
       }
 
-      #hamburgerToggle:checked~div:nth-child(3) {
+      .bar:nth-child(2) {
         opacity: 0;
-        transform: rotate(0) scale(.2);
       }
 
-      #hamburgerToggle:checked~div:last-child {
+      .bar:last-child {
         transform: rotate(-45deg) translate(1rem, -1rem);
-      }
-
-      #hamburgerToggle:checked .toggle-menu {
-        transform: translate(0);
       }
     }
 
-    .toggle-menu {
+    .hamburger-close {
       position: absolute;
-      left: -5%;
-      top: 0;
+      top: 12px;
+      right: 5%;
+      opacity: 0;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &:has(.hamburger-close:focus-visible) .hamburger-content {
+      outline: 2px solid $color-focus;
+      outline-offset: 2px;
+    }
+
+
+    .toggle-menu {
+      @starting-style {
+        transform: translateY(-50%);
+      }
+
+      position: fixed;
+      inset: 0;
       width: 100vw;
       height: 100vh;
       display: flex;
       align-items: center;
-      transform: translateY(-100%);
-      visibility: hidden;
       transition: all 0.3s ease-in-out;
+      transform: translateY(0);
       z-index: 50;
-      opacity: 0;
+      opacity: 1;
 
       @include respond(desktop-lg) {
         display: none;
@@ -172,15 +152,37 @@ li {
   text-decoration: none;
 
   &:hover {
-    color: $btn-color-primary;
+    color: $color-primary;
   }
 }
 
 
-.nav-dark-light-toggle {
-  cursor: pointer;
-
-  &:hover {
-    fill: $btn-color-primary;
+@keyframes fadeIn {
+  from {
+    transform: translateY(-100%);
   }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.nav-overlay[data-state="open"],
+.toggle-menu[data-state="open"] {
+  animation: fadeIn 300ms ease-out;
+}
+
+.nav-overlay[data-state="closed"],
+.toggle-menu[data-state="closed"] {
+  animation: fadeOut 300ms ease-in;
 }

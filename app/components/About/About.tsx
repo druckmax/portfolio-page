@@ -3,14 +3,14 @@
 import { getTranslations } from '../i18n/getTranslations';
 import './_About.scss';
 
-import nextjs from './img/nextjs.png';
-import react from './img/react.png';
-import typescript from './img/typescript.png';
-import tailwind from './img/tailwind.png';
-import sass from './img/sass.png';
-import prisma from './img/prisma.png';
 import mongodb from './img/mongodb.png';
+import nextjs from './img/nextjs.png';
 import nodejs from './img/nodejs.png';
+import prisma from './img/prisma.png';
+import react from './img/react.png';
+import sass from './img/sass.png';
+import tailwind from './img/tailwind.png';
+import typescript from './img/typescript.png';
 
 const iconMap = [
   { src: nextjs.src, alt: 'Nextjs icon' },

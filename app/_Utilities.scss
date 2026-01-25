@@ -1,39 +1,19 @@
 @use 'sass:color';
 
 // Dark Theme
-$text-color-dark: #222;
-
 $bg-color-black: #111;
-$bg-color-dark-grey: #111;
-$bg-color-grey: #1a1a1a;
 
 $drop-shadow-color-white: rgba(255, 255, 255, 0.2);
 
 $drop-shadow-white-20: drop-shadow(0 15px 0px $drop-shadow-color-white);
 $drop-shadow-white-20-invert: drop-shadow(0 -15px 0px $drop-shadow-color-white);
 
-$drop-shadow-white-40: drop-shadow(0 50px 1px $drop-shadow-color-white);
-$drop-shadow-white-40-invert: drop-shadow(0 -50px 1px $drop-shadow-color-white);
-
 $color-primary: #FFC300;
 $color-secondary: #51D5BD;
-
-$btn-color-primary: #FFC300;
-$btn-color-secondary: #51D5BD;
+$color-focus: #138ef9;
 
 // Light Theme
 $text-color-light: #f4f4f4;
-
-$bg-color-white: #fff;
-$bg-color-dark-white: #eee;
-
-$box-shadow-dark-10: 0 20px 5px rgba(0, 0, 0, 0.1);
-$box-shadow-dark-10-invert: 0 -20px 5px rgba(0, 0, 0, 0.1);
-
-$btn-color-primary-blue: #148ea9;
-
-// General
-$bg-color-work-descr: #555;
 
 $font-heading: 'Average_Sans', sans-serif;
 $font-main: 'Alber_Sans', sans-serif;
@@ -45,7 +25,6 @@ $polygon-small-high: 93%;
 $polygon-big-low: 25%;
 $polygon-big-high: 80%;
 
-// Classes
 .btn {
   position: relative;
   font-size: 1.75rem;
@@ -55,7 +34,6 @@ $polygon-big-high: 80%;
   border-radius: 8px;
   font-weight: bold;
   border: none;
-  // border: 4px solid; // just the border, no background
   background-color: transparent;
   color: $text-color-light;
   cursor: pointer;
@@ -68,12 +46,12 @@ $polygon-big-high: 80%;
   &:before {
     content: "";
     position: absolute;
-    inset: 0; // fill parent
-    border-radius: 8px; // match parent
-    padding: 4px; // border thickness
-    background: linear-gradient(to right, $btn-color-secondary,
-        $btn-color-primary,
-        $btn-color-secondary);
+    inset: 0;
+    border-radius: 8px;
+    padding: 4px;
+    background: linear-gradient(to right, $color-secondary,
+        $color-primary,
+        $color-secondary);
     mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -96,11 +74,23 @@ $polygon-big-high: 80%;
   }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 // ----- Media Queries -----
 
 @mixin respond($breakpoint) {
-  @if $breakpoint ==phone-xs {
-    @media only screen and (max-width: 325px) {
+  @if $breakpoint ==small {
+    @media only screen and (min-width: 520px) {
       @content;
     }
   }

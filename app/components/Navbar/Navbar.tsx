@@ -1,88 +1,66 @@
-'use client';
-
-import { useRef, useState } from 'react';
-import { BsFillMoonFill } from 'react-icons/bs';
+import * as Dialog from '@radix-ui/react-dialog';
 import { getTranslations } from '../i18n/getTranslations';
-import './_Navbar.scss';
 import logoWhite from './img/logoWhite.png';
+import './_Navbar.scss';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Navbar() {
-  const [showHamburger, setShowHamburger] = useState(false);
-  const hamburgerToggle = useRef<HTMLInputElement | null>(null);
-  const t = getTranslations();
-
-  const hamburgerHandler = () => {
-    if (showHamburger) {
-      setShowHamburger(false);
-      if (hamburgerToggle.current) {
-        hamburgerToggle.current.checked = false;
-      }
-      document.body.style.overflowY = 'auto';
-    } else {
-      setShowHamburger(true);
-      if (hamburgerToggle.current) {
-        hamburgerToggle.current.checked = true;
-      }
-      document.body.style.overflowY = 'hidden';
-    }
-  };
-
   return (
-    <nav className="navbar">
-      <div className="nav-logo-container">
-        <img
-          className="nav-logo-name"
-          src={logoWhite.src}
-          alt="cursive font of the name as a logo"
-        />
-      </div>
-      <div className="hamburger">
-        <div className="hamburger-content">
-          <input
-            onClick={hamburgerHandler}
-            type="checkbox"
-            name="hamburgerToggle"
-            id="hamburgerToggle"
-            ref={hamburgerToggle}
-          />
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div className={`toggle-menu ${showHamburger && 'show-toggle-menu'}`}>
-          <ul className="toggle-menu-content">
-            <li>
-              <a href="#hero">{t('nav.home')}</a>
-            </li>
-            <li>
-              <a href="#projects">{t('nav.projects')}</a>
-            </li>
-            <li>
-              <a href="#about">{t('nav.about')}</a>
-            </li>
-            <li>
-              <a href="contact">{t('nav.contact')}</a>
-            </li>
-            <li>
-              <BsFillMoonFill className="nav-dark-light-toggle" />
-            </li>
-          </ul>
-        </div>
-      </div>
-      <ul className="flex-navigation">
-        <li>
-          <a href="#hero">{t('nav.home')}</a>
-        </li>
-        <li>
-          <a href="#projects">{t('nav.projects')}</a>
-        </li>
-        <li>
-          <a href="#about">{t('nav.about')}</a>
-        </li>
-        <li>
-          <a href="contact">{t('nav.contact')}</a>
-        </li>
-      </ul>
+    <nav id="home" className="navbar">
+      <img className="nav-logo" src={logoWhite.src} alt="cursive font of the name as a logo" />
+      <MobileNav />
+      <NavItems className="flex-navigation" />
     </nav>
   );
 }
+
+const MobileNav = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="hamburger">
+      <Dialog.Root open={open} onOpenChange={setOpen}>
+        <Dialog.Trigger asChild>
+          <button type="button" className="hamburger-content" aria-label="Open navigation">
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+          </button>
+        </Dialog.Trigger>
+
+        <Dialog.Overlay className="nav-overlay" />
+
+        <Dialog.Content className="toggle-menu" aria-label="Main navigation">
+          <Dialog.Title className="sr-only">Navigation</Dialog.Title>
+
+          <NavItems className="toggle-menu-content" handleOpen={() => setOpen(false)} />
+
+          <Dialog.Trigger asChild>
+            <button type="button" className="hamburger-close" aria-label="Close navigation" />
+          </Dialog.Trigger>
+        </Dialog.Content>
+      </Dialog.Root>
+    </div>
+  );
+};
+
+const NavItems = ({ className, handleOpen }: { className: string; handleOpen?: () => void }) => {
+  const t = getTranslations();
+  return (
+    <ul className={className} onClick={handleOpen} onKeyDown={() => {}}>
+      <li>
+        <Link href="#home">{t('nav.home')}</Link>
+      </li>
+      <li>
+        <Link href="#projects">{t('nav.projects')}</Link>
+      </li>
+      <li>
+        <Link href="#about">{t('nav.about')}</Link>
+      </li>
+      <li>
+        <Link href="#contact">{t('nav.contact')}</Link>
+      </li>
+    </ul>
+  );
+};

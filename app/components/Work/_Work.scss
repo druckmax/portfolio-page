@@ -14,9 +14,9 @@
   .content-container {
     position: relative;
     z-index: 1;
-    background-color: $bg-color-dark-grey;
+    background-color: $bg-color-black;
     clip-path: polygon(0 $polygon-small-low, 100% 0, 100% 100%, 0 $polygon-small-high);
-    padding: 15rem 0 20rem 0;
+    padding: 15rem 2rem 20rem;
     width: 100%;
 
     @include respond(desktop-lg) {
@@ -38,10 +38,10 @@
     h2 {
       font-size: $font-size-section-heading;
       text-transform: lowercase;
-      padding: 2rem;
+      padding: 2rem 0;
       font-weight: 500;
       color: transparent;
-      background: linear-gradient(to right, $color-primary, #111);
+      background: linear-gradient(to right, $color-primary, transparent 125%);
       background-clip: text;
     }
   }
