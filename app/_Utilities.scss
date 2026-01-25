@@ -25,54 +25,6 @@ $polygon-small-high: 93%;
 $polygon-big-low: 25%;
 $polygon-big-high: 80%;
 
-.btn {
-  position: relative;
-  font-size: 1.75rem;
-  text-transform: lowercase;
-  padding: 2rem 4rem;
-  max-width: fit-content;
-  border-radius: 8px;
-  font-weight: bold;
-  border: none;
-  background-color: transparent;
-  color: $text-color-light;
-  cursor: pointer;
-  transition: all 0.2s;
-
-  &:active {
-    transform: translateY(1px);
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    padding: 4px;
-    background: linear-gradient(to right, $color-secondary,
-        $color-primary,
-        $color-secondary);
-    mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    background-size: 200% 100%;
-    background-position: 0% 50%;
-    transition: all .5s ease;
-  }
-
-
-
-  &:hover {
-    transform: translateY(-2px);
-
-    &::before {
-      filter:
-        brightness(1.5);
-      background-position: 100% 50%;
-    }
-  }
-}
 
 .sr-only {
   position: absolute;

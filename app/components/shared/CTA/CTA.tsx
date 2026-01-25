@@ -7,14 +7,25 @@ import {
   type ReactNode,
 } from 'react';
 
+import './_CTA.scss';
+
 type CTA = ButtonHTMLAttributes<HTMLButtonElement> & {
   asChild?: boolean;
+  isPending?: boolean;
   children: ReactNode;
 };
 
 type ChildAttributes = HTMLAttributes<HTMLElement>;
 
-export const CTA = ({ type = 'button', onClick, className, asChild, children }: CTA) => {
+export const CTA = ({
+  type = 'button',
+  onClick,
+  className,
+  asChild,
+  isPending,
+  children,
+  ...props
+}: CTA) => {
   if (asChild && isValidElement(children)) {
     const child = children as ReactElement<ChildAttributes>;
     return cloneElement<ChildAttributes>(child, {
@@ -23,8 +34,13 @@ export const CTA = ({ type = 'button', onClick, className, asChild, children }: 
   }
 
   return (
-    <button type={type} onClick={onClick} className={`btn ${className}`}>
-      {children}
+    <button
+      type={type}
+      onClick={onClick}
+      className={`btn ${className} ${isPending ? 'pending' : ''}`}
+      {...props}
+    >
+      <span>{children}</span>
     </button>
   );
 };

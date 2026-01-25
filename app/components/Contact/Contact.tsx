@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useEffect } from 'react';
+import { startTransition, useActionState, useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import './_Contact.scss';
 
@@ -10,7 +10,7 @@ import { type FormState, submitForm } from './actions/submitForm';
 
 export default function Contact() {
   const t = getTranslations();
-  const [state, action] = useActionState(submitForm, 'initial' as FormState);
+  const [state, submit, isPending] = useActionState(submitForm, 'initial' as FormState);
 
   useEffect(() => {
     switch (state) {
@@ -23,7 +23,8 @@ export default function Contact() {
       default:
         return;
     }
-  }, [state]);
+    startTransition(() => submit(null));
+  }, [state, submit]);
 
   return (
     <>
@@ -33,8 +34,15 @@ export default function Contact() {
           <div className="contact-heading">
             <h2>{t('contact.headline')}</h2>
           </div>
-          <form action={action} name="contact" method="POST">
-            <input type="hidden" name="form-name" value="Contact request from Portfolio" />
+          <form action={submit} name="contact" method="POST">
+            {/* Honeypot */}
+            <input
+              type="text"
+              name="honeypot"
+              style={{ display: 'none' }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
             <div className="emailName">
               <div className="input-group">
                 <label htmlFor="name">{t('contact.name.label')}</label>
@@ -46,6 +54,7 @@ export default function Contact() {
                   maxLength={50}
                   required
                   placeholder={t('contact.name.placeholder')}
+                  disabled={isPending}
                 />
               </div>
               <div className="input-group">
@@ -57,6 +66,7 @@ export default function Contact() {
                   maxLength={50}
                   required
                   placeholder={t('contact.email.placeholder')}
+                  disabled={isPending}
                 />
               </div>
             </div>
@@ -69,9 +79,10 @@ export default function Contact() {
                 maxLength={1000}
                 required
                 placeholder={t('contact.message.placeholder')}
+                disabled={isPending}
               />
             </div>
-            <CTA className="btn-contact" type="submit">
+            <CTA className="btn-contact" type="submit" isPending={isPending}>
               {t('contact.cta')}
             </CTA>
           </form>

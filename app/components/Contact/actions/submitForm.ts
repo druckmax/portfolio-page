@@ -2,32 +2,21 @@
 
 export type FormState = 'initial' | 'success' | 'error';
 
-type FormValues = {
-  name: string;
-  email: string;
-  message: string;
-};
-
-const encode = (data: FormValues): string => {
-  return Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key as keyof FormValues])}`)
-    .join('&');
-};
-
-export const submitForm = async (_state: FormState, formData: FormData): Promise<FormState> => {
+export const submitForm = async (
+  _state: FormState,
+  formData: FormData | null,
+): Promise<FormState> => {
   try {
-    const name = String(formData.get('name'));
-    const email = String(formData.get('email'));
-    const message = String(formData.get('message'));
+    if (!formData) return 'initial';
+    // biome-ignore lint/style/noNonNullAssertion: <Is defined>
+    const apiKey = process.env.STATIC_FORMS_KEY!;
 
-    if (!name || !email || !message) {
-      throw new Error('Missing required fields');
-    }
+    console.log(apiKey);
+    formData.append('apiKey', apiKey);
 
-    const response = await fetch('/', {
+    const response = await fetch('https://api.staticforms.dev/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ name, email, message }),
+      body: formData,
     });
     if (!response.ok) {
       const message = `An error has occurred: ${response.status}`;

@@ -4,8 +4,8 @@ import './App.scss';
 import './globals.scss';
 
 export const metadata = {
-  title: 'Portfolio',
-  description: 'My portfolio',
+  title: 'Max Sommerfeld - Software Engineer',
+  description: 'Hi I am Max, a fullstack software engineer',
 };
 
 interface RootLayoutProps {
@@ -13,19 +13,22 @@ interface RootLayoutProps {
 }
 
 const albertSans = Albert_Sans({
-  subsets: ["latin"]
-})
-
-const averageSans = Average_Sans({
-    weight: ['400'],
   subsets: ['latin'],
 });
 
-const fonts = [albertSans.className, averageSans.className]
+const averageSans = Average_Sans({
+  weight: ['400'],
+  subsets: ['latin'],
+});
+
+const fonts = [albertSans.className, averageSans.className];
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={fonts.join(",")}>
+    <html lang="en" className={fonts.join(',')}>
+      <head>
+        <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+      </head>
       <body>{children}</body>
     </html>
   );
