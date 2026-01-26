@@ -27,7 +27,7 @@ const projects = [
       'Tool that lets users read, write, assign, review translations, including a version control.',
     img: commander,
     url: '',
-    repo: '',
+    repo: 'https://github.com/druckmax/InkPatrol',
     techStack: ['NextJs', 'Prisma', 'PostgreSQL'],
   },
   {
