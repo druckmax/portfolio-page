@@ -1,3 +1,5 @@
+'use client';
+
 import * as Dialog from '@radix-ui/react-dialog';
 import { getTranslations } from '../i18n/getTranslations';
 import logoWhite from './img/logoWhite.png';

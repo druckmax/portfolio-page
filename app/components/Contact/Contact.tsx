@@ -34,7 +34,7 @@ export default function Contact() {
           <div className="contact-heading">
             <h2>{t('contact.headline')}</h2>
           </div>
-          <form action={submit} name="contact" method="POST">
+          <form action={submit} name="contact">
             {/* Honeypot */}
             <input
               type="text"

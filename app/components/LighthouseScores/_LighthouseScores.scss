@@ -1,0 +1,73 @@
+.lighthouse {
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  transform: translateX(-50%);
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.score {
+  --color-good: #1ac56c;
+  --color-ok: #ca8a04;
+  --color-bad: #dc2626;
+
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid;
+
+  &__value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+  }
+
+  &__label {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    color: #111;
+    color: #fff;
+    display: none;
+  }
+
+  &--good {
+    border-color: var(--color-good);
+    background-color: rgba(var(--color-good), $alpha: .5);
+
+    .score__value {
+      color: var(--color-good)
+    }
+  }
+
+  &--ok {
+    border-color: var(--color-ok);
+    background-color: rgba(var(--color-ok), $alpha: .5);
+
+    .score__value {
+      color: var(--color-ok)
+    }
+  }
+
+  &--bad {
+    border-color: var(--color-bad);
+    background-color: rgba(var(--color-bad), $alpha: .5);
+
+    .score__value {
+      color: var(--color-bad)
+    }
+  }
+}
