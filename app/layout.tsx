@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { Albert_Sans, Average_Sans } from 'next/font/google';
 import type { ReactNode } from 'react';
 import './App.scss';
@@ -29,7 +30,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <link rel="icon" href="favicon/favicon.ico" sizes="any" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
