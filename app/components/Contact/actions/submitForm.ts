@@ -1,6 +1,6 @@
 'use server';
 
-import { createFormToken } from '@/utils/createFormToken';
+import { createSignal } from '@/utils/createFormToken';
 
 export type FormState = 'initial' | 'success' | 'error';
 
@@ -31,7 +31,10 @@ export const submitForm = async (
 
     // Fake a success, but don't actually send the request if submission don't come from the website or were done in under 3 seconds
     const [timestamp, signal] = String(formData.get('token')).split('_');
-    const expected = await createFormToken(+timestamp);
+    const expected = await createSignal(timestamp);
+
+    console.log(signal, expected);
+    console.log(Date.now() - +timestamp);
 
     if (signal !== expected || Date.now() - Number(timestamp) < TIME_THRESHOLD) {
       console.warn('🤖 Bot form submission detected');
