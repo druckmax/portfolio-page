@@ -42,10 +42,12 @@ const MobileNav = () => {
           <Dialog.Title className="sr-only">Navigation</Dialog.Title>
 
           <NavItems className="toggle-menu-content" handleOpen={() => setOpen(false)} />
-
-          <Dialog.Trigger asChild>
-            <button type="button" className="hamburger-close" aria-label="Close navigation" />
-          </Dialog.Trigger>
+          <button
+            type="button"
+            className="hamburger-close"
+            aria-label="Close navigation"
+            onClick={() => setOpen(false)}
+          />
         </Dialog.Content>
       </Dialog.Root>
     </div>

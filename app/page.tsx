@@ -1,12 +1,14 @@
-import About from '@/app/components/About/About';
-import Contact from '@/app/components/Contact/Contact';
-import Footer from '@/app/components/Footer/Footer';
-import Hero from '@/app/components/Hero/Hero';
-import Navbar from '@/app/components/Navbar/Navbar';
-import Work from '@/app/components/Work/Work';
+import About from '@/components/About/About';
+import Contact from '@/components/Contact/Contact';
+import Footer from '@/components/Footer/Footer';
+import Hero from '@/components/Hero/Hero';
+import Navbar from '@/components/Navbar/Navbar';
+import Work from '@/components/Work/Work';
 import BackgroundFlip from './components/BackgroundFlip';
+import { createFormToken } from './utils/createFormToken';
 
-export default function Home() {
+export default async function Home() {
+  const formToken = await createFormToken();
   return (
     <div className="wrapper">
       <Navbar />
@@ -14,7 +16,7 @@ export default function Home() {
       <Hero />
       <Work />
       <About />
-      <Contact />
+      <Contact formToken={formToken} />
       <Footer />
     </div>
   );

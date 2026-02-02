@@ -13,11 +13,11 @@ type Scores = {
 } | null;
 
 export const getScores = cache(async (): Promise<Scores> => {
-  const url = process.env.LIGHTHOUSE_URL!;
+  const url = process.env.LIGHTHOUSE_URL;
 
   const options = {
     method: 'POST',
-    headers: { 'x-api-key': process.env.GEEKFLARE_API_KEY!, 'Content-Type': 'application/json' },
+    headers: { 'x-api-key': process.env.GEEKFLARE_API_KEY, 'Content-Type': 'application/json' },
     body: JSON.stringify({ url, device: 'desktop' }),
   };
 

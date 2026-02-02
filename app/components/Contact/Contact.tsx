@@ -8,7 +8,7 @@ import { getTranslations } from '../i18n/getTranslations';
 import { CTA } from '../shared/CTA/CTA';
 import { type FormState, submitForm } from './actions/submitForm';
 
-export default function Contact() {
+export default function Contact({ formToken }: { formToken: string }) {
   const t = getTranslations();
   const [state, submit, isPending] = useActionState(submitForm, 'initial' as FormState);
 
@@ -39,6 +39,23 @@ export default function Contact() {
             <input
               type="text"
               name="honeypot"
+              style={{ display: 'none' }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+            {/* Honeypot 2*/}
+            <input
+              type="text"
+              name="company"
+              style={{ display: 'none' }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+            {/* Trying to reduce bot submissions */}
+            <input
+              type="text"
+              name="token"
+              defaultValue={formToken}
               style={{ display: 'none' }}
               tabIndex={-1}
               autoComplete="off"
