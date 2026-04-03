@@ -5,7 +5,7 @@ import { getTranslations } from '../i18n/getTranslations';
 import logoWhite from './img/logoWhite.png';
 import './_Navbar.scss';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
   return (
@@ -24,6 +24,13 @@ export default function Navbar() {
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="hamburger">

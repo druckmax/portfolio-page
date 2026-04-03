@@ -13,6 +13,19 @@ const delay = async (ms = TIME_THRESHOLD) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
+const verifyTurnstile = async (token: string): Promise<boolean> => {
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      secret: process.env.TURNSTILE_SECRET,
+      response: token,
+    }),
+  });
+  const data = await res.json();
+  return data.success;
+};
+
 export const submitForm = async (
   _state: FormState,
   formData: FormData | null,
@@ -29,12 +42,20 @@ export const submitForm = async (
       return 'success';
     }
 
-    // Fake a success, but don't actually send the request if submission don't come from the website or were done in under 3 seconds
     const [timestamp, signal] = String(formData.get('token')).split('_');
     const expected = await createSignal(timestamp);
 
     if (signal !== expected || Date.now() - Number(timestamp) < TIME_THRESHOLD) {
       console.warn('🤖 Bot form submission detected');
+      await delay();
+      return 'success';
+    }
+
+    const turnstileToken = String(formData.get('turnstileToken'));
+    const isHuman = await verifyTurnstile(turnstileToken);
+
+    if (!isHuman) {
+      console.warn('🤖 Turnstile verification failed');
       await delay();
       return 'success';
     }
@@ -51,9 +72,9 @@ export const submitForm = async (
     });
 
     if (error) {
-      const message = `An error has occurred: ${error.statusCode}`;
-      throw new Error(message);
+      throw new Error(`An error has occurred: ${error.statusCode}`);
     }
+
     return 'success';
   } catch (error) {
     console.error(error);

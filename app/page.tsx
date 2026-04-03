@@ -16,7 +16,7 @@ export default async function Home() {
       <Hero />
       <Work />
       <About />
-      <Contact formToken={formToken} />
+      <Contact formToken={formToken} turnstileSiteKey={process.env.TURNSTILE_SITE_KEY} />
       <Footer />
     </div>
   );

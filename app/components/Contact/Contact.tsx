@@ -1,5 +1,6 @@
 'use client';
 
+import { Turnstile } from '@marsidev/react-turnstile';
 import { startTransition, useActionState, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import './_Contact.scss';
@@ -10,10 +11,17 @@ import { type FormState, submitForm } from './actions/submitForm';
 
 const EMPTY_FIELDS = { name: '', email: '', message: '' };
 
-export default function Contact({ formToken }: { formToken: string }) {
+export default function Contact({
+  formToken,
+  turnstileSiteKey,
+}: {
+  formToken: string;
+  turnstileSiteKey: string;
+}) {
   const t = getTranslations();
   const [state, submit, isPending] = useActionState(submitForm, 'initial' as FormState);
   const [fields, setFields] = useState(EMPTY_FIELDS);
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   useEffect(() => {
     switch (state) {
@@ -35,6 +43,15 @@ export default function Contact({ formToken }: { formToken: string }) {
     setFields((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!turnstileToken) return;
+    const formData = new FormData(e.currentTarget);
+    formData.append('turnstileToken', turnstileToken);
+    startTransition(() => submit(formData));
+    setTurnstileToken('');
+  };
+
   return (
     <>
       <Toaster position="top-center" />
@@ -43,7 +60,7 @@ export default function Contact({ formToken }: { formToken: string }) {
           <div className="contact-heading">
             <h2>{t('contact.headline')}</h2>
           </div>
-          <form action={submit} name="contact">
+          <form onSubmit={handleSubmit} name="contact">
             {/* Honeypot */}
             <input
               type="text"
@@ -113,8 +130,21 @@ export default function Contact({ formToken }: { formToken: string }) {
                 value={fields.message}
                 onChange={handleChange}
               />
+              <Turnstile
+                siteKey={turnstileSiteKey}
+                className="turnstile-widget"
+                options={{ theme: 'dark', size: 'normal', appearance: 'interaction-only' }}
+                onSuccess={setTurnstileToken}
+                onError={() => setTurnstileToken('')}
+                onExpire={() => setTurnstileToken('')}
+              />
             </div>
-            <CTA className="btn-contact" type="submit" isPending={isPending}>
+            <CTA
+              className="btn-contact"
+              type="submit"
+              isPending={isPending}
+              disabled={!turnstileToken}
+            >
               {t('contact.cta')}
             </CTA>
           </form>
