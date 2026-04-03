@@ -1,6 +1,6 @@
 'use client';
 
-import { startTransition, useActionState, useEffect } from 'react';
+import { startTransition, useActionState, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import './_Contact.scss';
 
@@ -8,9 +8,12 @@ import { getTranslations } from '../i18n/getTranslations';
 import { CTA } from '../shared/CTA/CTA';
 import { type FormState, submitForm } from './actions/submitForm';
 
+const EMPTY_FIELDS = { name: '', email: '', message: '' };
+
 export default function Contact({ formToken }: { formToken: string }) {
   const t = getTranslations();
   const [state, submit, isPending] = useActionState(submitForm, 'initial' as FormState);
+  const [fields, setFields] = useState(EMPTY_FIELDS);
 
   useEffect(() => {
     switch (state) {
@@ -19,12 +22,18 @@ export default function Contact({ formToken }: { formToken: string }) {
         break;
       case 'success':
         toast.success('Thanks for your submit');
+        setFields(EMPTY_FIELDS);
         break;
       default:
         return;
     }
     startTransition(() => submit(null));
   }, [state, submit]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFields((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <>
@@ -72,6 +81,8 @@ export default function Contact({ formToken }: { formToken: string }) {
                   required
                   placeholder={t('contact.name.placeholder')}
                   disabled={isPending}
+                  value={fields.name}
+                  onChange={handleChange}
                 />
               </div>
               <div className="input-group">
@@ -84,6 +95,8 @@ export default function Contact({ formToken }: { formToken: string }) {
                   required
                   placeholder={t('contact.email.placeholder')}
                   disabled={isPending}
+                  value={fields.email}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -97,6 +110,8 @@ export default function Contact({ formToken }: { formToken: string }) {
                 required
                 placeholder={t('contact.message.placeholder')}
                 disabled={isPending}
+                value={fields.message}
+                onChange={handleChange}
               />
             </div>
             <CTA className="btn-contact" type="submit" isPending={isPending}>

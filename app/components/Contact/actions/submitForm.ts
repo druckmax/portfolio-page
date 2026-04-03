@@ -1,10 +1,13 @@
 'use server';
 
+import { Resend } from 'resend';
+import ContactEmail from '@/components/Emails/ContactEmail';
 import { createSignal } from '@/utils/createFormToken';
 
 export type FormState = 'initial' | 'success' | 'error';
 
 const TIME_THRESHOLD = 3000;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const delay = async (ms = TIME_THRESHOLD) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -16,9 +19,6 @@ export const submitForm = async (
 ): Promise<FormState> => {
   try {
     if (!formData) return 'initial';
-    // biome-ignore lint/style/noNonNullAssertion: <Is defined>
-    const apiKey = process.env.STATIC_FORMS_KEY!;
-    formData.append('apiKey', apiKey);
 
     const honeypot = formData.get('honeypot');
     const honeypot2 = formData.get('company');
@@ -33,21 +33,25 @@ export const submitForm = async (
     const [timestamp, signal] = String(formData.get('token')).split('_');
     const expected = await createSignal(timestamp);
 
-    console.log(signal, expected);
-    console.log(Date.now() - +timestamp);
-
     if (signal !== expected || Date.now() - Number(timestamp) < TIME_THRESHOLD) {
       console.warn('🤖 Bot form submission detected');
       await delay();
       return 'success';
     }
 
-    const response = await fetch('https://api.staticforms.dev/submit', {
-      method: 'POST',
-      body: formData,
+    const name = String(formData.get('name'));
+    const email = String(formData.get('email'));
+    const message = String(formData.get('message'));
+
+    const { error } = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: ['max_sommerfeld@web.de'],
+      subject: 'New Contact Form Submission',
+      react: ContactEmail({ name, email, message }),
     });
-    if (!response.ok) {
-      const message = `An error has occurred: ${response.status}`;
+
+    if (error) {
+      const message = `An error has occurred: ${error.statusCode}`;
       throw new Error(message);
     }
     return 'success';
