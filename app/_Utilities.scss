@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use "sass:color";
 
 // Dark Theme
 $bg-color-black: #111;
@@ -8,15 +8,15 @@ $drop-shadow-color-white: rgba(255, 255, 255, 0.2);
 $drop-shadow-white-20: drop-shadow(0 15px 0px $drop-shadow-color-white);
 $drop-shadow-white-20-invert: drop-shadow(0 -15px 0px $drop-shadow-color-white);
 
-$color-primary: #FFC300;
-$color-secondary: #51D5BD;
+$color-primary: #ffc300;
+$color-secondary: #51d5bd;
 $color-focus: #138ef9;
 
 // Light Theme
 $text-color-light: #f4f4f4;
 
-$font-heading: 'Average_Sans', sans-serif;
-$font-main: 'Alber_Sans', sans-serif;
+$font-heading: "Average_Sans", sans-serif;
+$font-main: "Alber_Sans", sans-serif;
 
 $font-size-section-heading: 4rem;
 
@@ -24,7 +24,6 @@ $polygon-small-low: 7%;
 $polygon-small-high: 93%;
 $polygon-big-low: 25%;
 $polygon-big-high: 80%;
-
 
 .sr-only {
   position: absolute;
@@ -41,31 +40,31 @@ $polygon-big-high: 80%;
 // ----- Media Queries -----
 
 @mixin respond($breakpoint) {
-  @if $breakpoint ==small {
+  @if $breakpoint == small {
     @media only screen and (min-width: 520px) {
       @content;
     }
   }
 
-  @if $breakpoint ==landscape {
+  @if $breakpoint == landscape {
     @media only screen and (min-width: 600px) {
       @content;
     }
   }
 
-  @if $breakpoint ==medium {
+  @if $breakpoint == medium {
     @media only screen and (min-width: 800px) {
       @content;
     }
   }
 
-  @if $breakpoint ==desktop-lg {
+  @if $breakpoint == desktop-lg {
     @media only screen and (min-width: 1140px) {
       @content;
     }
   }
 
-  @if $breakpoint ==desktop-xl {
+  @if $breakpoint == desktop-xl {
     @media only screen and (min-width: 1920px) {
       @content;
     }

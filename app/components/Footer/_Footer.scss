@@ -1,4 +1,4 @@
-@use '../../Utilities' as *;
+@use "../../Utilities" as *;
 
 footer {
   position: relative;
@@ -15,7 +15,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    transition: all .5s;
+    transition: all 0.5s;
     width: fit-content;
     margin: auto;
     background: linear-gradient(to right, #fff 0% 50%, $color-primary 50%, $color-secondary 100%);
@@ -24,19 +24,18 @@ footer {
     background-size: 200%;
     background-position: 0%;
 
+    .arrowUp {
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+
     &:hover {
       background-position: 100%;
 
       .arrowUp {
         transform: scale(1.2);
       }
-    }
-
-
-    .arrowUp {
-      color: #fff;
-      cursor: pointer;
-      transition: all .5s;
     }
   }
 
@@ -53,7 +52,7 @@ footer {
     .withLove {
       display: flex;
       align-items: center;
-      gap: .5rem;
+      gap: 0.5rem;
       margin-bottom: 1rem;
     }
 
@@ -63,7 +62,6 @@ footer {
       gap: 0.5rem;
       margin: auto;
     }
-
 
     a {
       font-size: 2rem;
@@ -75,6 +73,5 @@ footer {
         color: $color-primary;
       }
     }
-
   }
 }

@@ -1,4 +1,4 @@
-@use '../../Utilities' as *;
+@use "../../Utilities" as *;
 
 .hero-container {
   display: flex;
@@ -32,7 +32,6 @@
       position: absolute;
       right: 2rem;
       bottom: -8rem;
-      z-index: 5;
       transform: translateY(25%) rotate(-8deg);
       z-index: 1;
     }
@@ -61,7 +60,12 @@
       }
 
       span {
-        background: linear-gradient(90deg, $color-secondary 15%, $color-primary 65%, transparent 105%);
+        background: linear-gradient(
+          90deg,
+          $color-secondary 15%,
+          $color-primary 65%,
+          transparent 105%
+        );
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -86,8 +90,5 @@
         margin-bottom: 4rem;
       }
     }
-
   }
-
-
 }

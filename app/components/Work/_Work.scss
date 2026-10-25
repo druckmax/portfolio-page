@@ -1,4 +1,4 @@
-@use '../../Utilities' as *;
+@use "../../Utilities" as *;
 
 .work-container {
   position: relative;
@@ -9,7 +9,6 @@
   align-items: center;
   justify-content: center;
   filter: $drop-shadow-white-20 $drop-shadow-white-20-invert;
-
 
   .content-container {
     position: relative;
@@ -55,5 +54,4 @@
     gap: 6rem;
     padding-bottom: 4rem;
   }
-
 }

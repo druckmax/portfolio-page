@@ -1,5 +1,5 @@
 @use "sass:color";
-@use '../../Utilities' as *;
+@use "../../Utilities" as *;
 
 .navbar {
   width: 90%;
@@ -14,7 +14,6 @@
   .nav-logo {
     max-width: 15rem;
   }
-
 
   .flex-navigation {
     width: 50%;
@@ -47,7 +46,7 @@
         height: 4px;
         transform-origin: center;
         z-index: 100;
-        transition: all .4s ease-in-out;
+        transition: all 0.4s ease-in-out;
 
         &:not(:last-child) {
           margin-bottom: 1rem;
@@ -59,7 +58,7 @@
       }
     }
 
-    &:has(div[data-state='open']) {
+    &:has(div[data-state="open"]) {
       .bar:first-child {
         transform: rotate(45deg) translate(1rem, 1rem);
       }
@@ -87,7 +86,6 @@
       outline-offset: 2px;
     }
 
-
     .toggle-menu {
       @starting-style {
         transform: translateY(-50%);
@@ -110,7 +108,7 @@
 
       &:before {
         position: absolute;
-        content: '';
+        content: "";
         width: 100vw;
         height: 100%;
         background-color: $bg-color-black;
@@ -155,7 +153,6 @@ li {
     color: $color-primary;
   }
 }
-
 
 @keyframes fadeIn {
   from {

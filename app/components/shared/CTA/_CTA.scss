@@ -1,4 +1,4 @@
-@use '../../../Utilities' as *;
+@use "../../../Utilities" as *;
 
 .btn {
   position: relative;
@@ -19,7 +19,7 @@
   }
 
   &:disabled {
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: none;
   }
 
@@ -29,24 +29,19 @@
     inset: 0;
     border-radius: 8px;
     padding: 4px;
-    background: linear-gradient(to right, $color-secondary,
-        $color-primary,
-        $color-secondary);
-    mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+    background: linear-gradient(to right, $color-secondary, $color-primary, $color-secondary);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     background-size: 200% 100%;
     background-position: 0% 50%;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
   }
 
   &:hover {
     transform: translateY(-2px);
 
     &::before {
-      filter:
-        brightness(1.5);
+      filter: brightness(1.5);
       background-position: 100% 50%;
     }
   }
@@ -55,7 +50,7 @@
     filter: hue-rotate(90deg);
 
     span {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 

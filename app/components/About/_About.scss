@@ -1,4 +1,4 @@
-@use '../../Utilities' as *;
+@use "../../Utilities" as *;
 
 .about-background-wrapper {
   position: relative;
@@ -6,7 +6,7 @@
   margin: auto;
 
   &::before {
-    content: '';
+    content: "";
     width: 175%;
     height: 250%;
     top: -50%;
@@ -15,7 +15,7 @@
     z-index: 1;
     background-color: $bg-color-black;
     transform: rotate(20deg) translateX(-50%);
-    opacity: .8;
+    opacity: 0.8;
     display: none;
 
     @include respond(medium) {
@@ -34,7 +34,7 @@
     position: relative;
     z-index: 1;
     padding: 2rem;
-    background: rgba($bg-color-black, .7);
+    background: rgba($bg-color-black, 0.7);
     margin-top: 2rem;
     border-radius: 16px;
 
@@ -60,13 +60,11 @@
       width: fit-content;
       padding-right: 5rem;
       margin-bottom: 0.5rem;
-
     }
 
     .general {
       display: flex;
       flex-direction: column;
-      font-weight: normal;
       gap: 2.5rem;
       font-weight: 200;
 

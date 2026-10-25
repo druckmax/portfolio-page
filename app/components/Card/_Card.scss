@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use "sass:color";
 @use "../../Utilities" as *;
 
 .card-container {
@@ -68,18 +68,19 @@
     padding: 2rem 1rem;
     background: linear-gradient(to left, #111, transparent);
 
-
+    /* biome-ignore lint/style/noDescendingSpecificity: targets a different element than .card-description h3 span */
     span {
       position: relative;
       z-index: 4;
       width: fit-content;
       padding: 0.5rem 1rem;
-      background-color: rgba(#181818, .8);
+      background-color: rgba(#181818, 0.8);
       border-radius: 4px;
       border: 1px solid var(--project-color);
     }
   }
 
+  /* biome-ignore lint/style/noDescendingSpecificity: base rule; hover/focus-within states defined earlier by design */
   .card-links {
     position: absolute;
     inset: 0;
@@ -93,7 +94,7 @@
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    background: rgba(#111, .8);
+    background: rgba(#111, 0.8);
     transform: translateY(-10%);
     opacity: 0;
     transition: all 0.3s ease;
@@ -113,7 +114,7 @@
 
       &.disabled {
         pointer-events: none;
-        opacity: .5;
+        opacity: 0.5;
       }
     }
   }
