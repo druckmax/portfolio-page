@@ -28,7 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "prettier": "^3.9.10",
-    "react-email": "^6.11.3",
+    "react-email": "^6.11.11",
     "sass": "^1.106.1",
     "typescript": "^7.0.2"
   }
